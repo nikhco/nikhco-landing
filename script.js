@@ -65,17 +65,15 @@ function setupLogoFlipAnimation() {
   const minRepeatMs = 7000;
   const maxRepeatMs = 11000;
 
-  // Palette sourced from Radix UI step-10 scales — engineered for equal
-  // perceived luminance (~L* 50-55) across hues, so every chip carries the
-  // same visual weight as the neutral charcoal front. Hues sit ~90° apart
-  // on the wheel so nothing clashes when cycled in rapid sequence.
-  // Final "neutral" entry returns the chip to the default cell color so the
-  // cycle resets through black/cream before the next orange.
+  // Editorial palette — warm-leaning companions to the orange anchor,
+  // inspired by Aesop / Hermès / The Gentlewoman rather than web primaries.
+  // Forest and oxblood share an undertone family with the orange, so the
+  // cycle feels considered rather than rainbow-y. Final entry returns to
+  // the cell default so the sequence rests on black/cream before restarting.
   const palette = [
-    { bg: "#EF5F00", fg: "#FFF7ED", glow: "239,95,0" },     // orange-10
-    { bg: "#0D74CE", fg: "#F0F7FF", glow: "13,116,206" },   // blue-10
-    { bg: "#CA244D", fg: "#FFF0F3", glow: "202,36,77" },    // crimson-10
-    { bg: "#6E56CF", fg: "#F5F2FF", glow: "110,86,207" },   // violet-10
+    { bg: "#EF5F00", fg: "#FFF7ED", glow: "239,95,0" },     // orange
+    { bg: "#1F4536", fg: "#F4F1EA", glow: "31,69,54" },     // forest
+    { bg: "#7A1F2B", fg: "#FFF7ED", glow: "122,31,43" },    // oxblood
     {                                                        // back to cell default
       bg: "var(--logo-cell-bg)",
       fg: "var(--logo-cell-fg)",
