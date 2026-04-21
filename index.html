@@ -3,304 +3,520 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NIKHCO. | Small apps for everyday tech needs</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Primary SEO -->
+    <title>NiKhCo. — Small software, patiently made. | Independent Mac &amp; web app studio</title>
     <meta
       name="description"
-      content="NIKHCO. is a small product studio building focused apps for everyday tech needs."
+      content="NiKhCo. is an independent software studio building small, dependable apps for the Mac and the web. Makers of Fin. (menu bar to-do list for Mac), TempDeals, TempMarks, and TempNote. Proudly built in Canada since 2013."
     />
     <meta
       name="keywords"
-      content="NIKHCO, product studio, indie software, small apps, utility apps, TempDeals, TempMarks, TempNote, digital products, software studio Canada"
+      content="NiKhCo, independent software studio, Mac app studio, indie Mac developer, Fin app, Fin Mac to-do list, TempDeals, TempMarks, TempNote, small software, utility apps, Chrome extensions, Canadian software studio, quiet apps, minimalist software"
     />
     <meta name="author" content="NiKhCo." />
-    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="publisher" content="NiKhCo." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="bingbot" content="index, follow" />
+    <meta name="theme-color" content="#FAFAF9" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0E0E0F" media="(prefers-color-scheme: dark)" />
+    <meta name="color-scheme" content="light dark" />
+
+    <!-- AEO: Allow AI crawlers so LLMs can cite the studio accurately -->
+    <meta name="GPTBot" content="index, follow" />
+    <meta name="ClaudeBot" content="index, follow" />
+    <meta name="PerplexityBot" content="index, follow" />
+    <meta name="Google-Extended" content="index, follow" />
+    <meta name="CCBot" content="index, follow" />
+    <meta name="anthropic-ai" content="index, follow" />
+    <meta name="Applebot" content="index, follow" />
+    <meta name="Applebot-Extended" content="index, follow" />
+
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="NiKhCo." />
+    <meta property="og:title" content="NiKhCo. — Small software, patiently made." />
+    <meta property="og:description" content="An independent studio building small, dependable apps for the Mac and the web. Makers of Fin., TempDeals, TempMarks, and TempNote." />
     <meta property="og:url" content="https://www.nikhco.in/" />
-    <meta property="og:title" content="NIKHCO. | Small apps for everyday tech needs" />
-    <meta property="og:description" content="Focused software products for everyday workflows by NiKhCo." />
-    <meta property="og:site_name" content="NIKHCO." />
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="NIKHCO. | Small apps for everyday tech needs" />
-    <meta name="twitter:description" content="Focused software products for everyday workflows by NiKhCo." />
+    <meta property="og:image" content="https://www.nikhco.in/assets_nikhco/og-image.png" />
+    <meta property="og:image:alt" content="NiKhCo. — Small software, patiently made." />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="NiKhCo. — Small software, patiently made." />
+    <meta name="twitter:description" content="An independent studio building small, dependable apps for the Mac and the web." />
+    <meta name="twitter:image" content="https://www.nikhco.in/assets_nikhco/og-image.png" />
+
     <link rel="canonical" href="https://www.nikhco.in/" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="alternate" hreflang="en" href="https://www.nikhco.in/" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Syne:wght@700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
+
+    <!-- Structured Data: Organization -->
     <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "NiKhCo.",
-        "description": "Independent product studio building focused software for everyday workflows.",
-        "foundingLocation": "Canada",
-        "sameAs": [
-          "https://www.nipunkhanna.com",
-          "https://www.nitinkhanna.com"
-        ]
-      }
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "NiKhCo.",
+      "alternateName": ["NiKhCo", "NIKHCO"],
+      "url": "https://www.nikhco.in",
+      "logo": "https://www.nikhco.in/favicon.svg",
+      "email": "hello@nikhco.com",
+      "description": "NiKhCo. is an independent software studio building small, dependable apps for the Mac and the web. Proudly built in Canada.",
+      "foundingDate": "2013",
+      "foundingLocation": { "@type": "Country", "name": "Canada" },
+      "address": { "@type": "PostalAddress", "addressCountry": "CA" },
+      "sameAs": [
+        "https://www.nipunkhanna.com",
+        "https://www.nitinkhanna.com"
+      ]
+    }
+    </script>
+
+    <!-- Structured Data: WebSite (sitelinks search) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "NiKhCo.",
+      "url": "https://www.nikhco.in",
+      "publisher": { "@type": "Organization", "name": "NiKhCo." },
+      "inLanguage": "en"
+    }
+    </script>
+
+    <!-- Structured Data: ItemList of apps (AEO — lets LLMs enumerate products) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Apps by NiKhCo.",
+      "itemListOrder": "https://schema.org/ItemListUnordered",
+      "numberOfItems": 4,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "Fin.",
+            "description": "A free, minimalist to-do list app that lives in the Mac menu bar. No accounts, no AI, no subscriptions. iCloud sync across Macs.",
+            "applicationCategory": "ProductivityApplication",
+            "operatingSystem": "macOS 13.0 or later",
+            "url": "https://fin.nikhco.in",
+            "offers": { "@type": "Offer", "price": "0.00", "priceCurrency": "USD" },
+            "publisher": { "@type": "Organization", "name": "NiKhCo." }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "WebApplication",
+            "name": "TempDeals",
+            "description": "A calm, filterable feed of the best shopping deals from around the web.",
+            "applicationCategory": "ShoppingApplication",
+            "operatingSystem": "Web",
+            "url": "https://tempdeals.net",
+            "publisher": { "@type": "Organization", "name": "NiKhCo." }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "TempMarks",
+            "description": "A Chrome extension for temporary bookmarks — a separate drawer for links you only need for a little while.",
+            "applicationCategory": "BrowserApplication",
+            "operatingSystem": "Chrome",
+            "publisher": { "@type": "Organization", "name": "NiKhCo." }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "TempNote",
+            "description": "A Chrome extension scratchpad that sits in the corner of your browser for short-lived notes.",
+            "applicationCategory": "BrowserApplication",
+            "operatingSystem": "Chrome",
+            "publisher": { "@type": "Organization", "name": "NiKhCo." }
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Structured Data: FAQPage (AEO — answers LLMs may cite) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is NiKhCo.?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "NiKhCo. is an independent software studio building small, dependable apps for the Mac and the web. It focuses on quiet, well-crafted tools that earn their place by staying out of the way. The studio is based in Canada and has been shipping independent software since 2013."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What apps does NiKhCo. make?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "NiKhCo. makes four active apps: Fin. — a free, minimalist to-do list for the Mac menu bar; TempDeals — a clean, filterable feed of the best shopping deals from around the web; TempMarks — a Chrome extension for temporary bookmarks; and TempNote — a Chrome extension scratchpad for short-lived notes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Fin. really free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Fin. is completely free, with no subscriptions, in-app purchases, or feature locks. It does not require an account and uses no AI."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where is NiKhCo. based?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "NiKhCo. is proudly built in Canada and has operated as an independent studio since 2013."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I contact NiKhCo.?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can reach the studio at hello@nikhco.com. Product-specific questions for Fin. can go to fin@nikhco.in."
+          }
+        }
+      ]
+    }
     </script>
   </head>
-  <body data-page="home">
-    <!-- Ambient background orbs -->
-    <div class="orb orb-1" aria-hidden="true"></div>
-    <div class="orb orb-2" aria-hidden="true"></div>
-    <div class="orb orb-3" aria-hidden="true"></div>
-
-    <header class="top reveal">
-      <a class="logo" href="about.html" aria-label="NIKHCO home">
-        <span class="logo-word" aria-label="NIKHCO.">
-          <span class="logo-cell">N</span>
-          <span class="logo-cell">I</span>
-          <span class="logo-cell">K</span>
-          <span class="logo-cell">H</span>
-          <span class="logo-cell">C</span>
-          <span class="logo-cell">O</span>
-          <span class="logo-cell">.</span>
-        </span>
-      </a>
-      <nav class="top-nav">
-        <a href="#products">Products</a>
-        <a href="about.html">About</a>
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-          <svg class="icon-sun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-          <svg class="icon-moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-        </button>
-        <a href="mailto:hello@nikhco.com" class="nav-pill">Say hi &rarr;</a>
-      </nav>
+  <body>
+    <header class="top" role="banner">
+      <div class="top-inner">
+        <a class="logo-tile" href="#top" aria-label="NiKhCo home">
+          <span class="logo-word" aria-label="NIKHCO.">
+            <span class="logo-cell">N</span>
+            <span class="logo-cell">I</span>
+            <span class="logo-cell">K</span>
+            <span class="logo-cell">H</span>
+            <span class="logo-cell">C</span>
+            <span class="logo-cell">O</span>
+            <span class="logo-cell logo-dot">.</span>
+          </span>
+        </a>
+        <nav class="top-nav" aria-label="Primary">
+          <a href="#apps">Apps</a>
+          <a href="#about">About</a>
+          <a href="mailto:hello@nikhco.com">Contact</a>
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" type="button">
+            <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <svg class="icon-moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+        </nav>
+      </div>
     </header>
 
-    <main>
+    <main id="top">
       <!-- HERO -->
-      <section class="hero reveal">
-        <div class="hero-body">
-          <p class="kicker">Tiny studio. Big utility.</p>
-          <h1>Simple apps<br>for everyday<br>needs.</h1>
-          <p class="hero-copy">
-            We build focused software for common workflows that do not need
-            heavyweight tools. Every product is designed to be clear, reliable,
-            and genuinely useful from the first use.
+      <section class="hero">
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="hero-glow-2" aria-hidden="true"></div>
+        <div class="section-inner hero-inner">
+          <h1>Small software,<br><em>patiently</em> made.</h1>
+          <p class="hero-sub">
+            An independent studio building quiet, dependable apps for the Mac
+            and the web.
           </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#products">See products</a>
-            <a class="btn btn-ghost" href="about.html">Who we are &rarr;</a>
-          </div>
-        </div>
-
-        <div class="hero-aside" aria-hidden="true">
-          <div class="hero-stack">
-            <div class="stack-card sc-1">
-              <span class="sc-dot"></span>
-              <span class="sc-name">TempDeals</span>
-              <span class="sc-desc">Deal aggregator</span>
-            </div>
-            <div class="stack-card sc-2">
-              <span class="sc-dot"></span>
-              <span class="sc-name">TempMarks</span>
-              <span class="sc-desc">Temp bookmarks</span>
-            </div>
-            <div class="stack-card sc-3">
-              <span class="sc-dot"></span>
-              <span class="sc-name">TempNote</span>
-              <span class="sc-desc">Quick scratchpad</span>
-            </div>
-          </div>
-          <p class="stack-label">3 active products</p>
         </div>
       </section>
 
-      <!-- ACTIVE PRODUCTS -->
-      <section id="products" class="products reveal">
-        <div class="section-label">
-          <span class="label-num">01 &mdash; Products</span>
-          <h2>Built for one clear job each.</h2>
-        </div>
+      <!-- APPS GRID -->
+      <section id="apps" class="apps">
+        <div class="section-inner">
+          <p class="eyebrow">Our apps</p>
+          <h2>Small tools, each built to do one thing well.</h2>
+          <p class="apps-lede">
+            A Mac app, a website, and two browser tools — each built with
+            the same quiet, careful approach.
+          </p>
 
-        <div class="product-bento">
-          <!-- TempDeals — main bento card (spans 2 rows) -->
-          <article class="product-card bento-main card-deals">
-            <div class="card-header">
-              <img
-                class="product-logo"
-                src="assets_nikhco/products/TempDeals_Logo.png"
-                alt="TempDeals logo"
-              />
-              <div>
+          <div class="apps-grid">
+            <a class="app-tile app-tile--fin" href="#fin">
+              <div class="app-icon">
+                <img src="assets_nikhco/products/fin_logo.png" alt="Fin. app icon — orange rounded square with white checkmark" />
+              </div>
+              <div class="app-meta">
+                <div class="app-meta-head">
+                  <h3>Fin.</h3>
+                  <span class="chip chip-new">New</span>
+                </div>
+                <p>A quiet to-do list for your Mac menu bar.</p>
+                <span class="app-platform">Mac app</span>
+              </div>
+            </a>
+
+            <a class="app-tile app-tile--deals" href="#tempdeals">
+              <div class="app-icon">
+                <img src="assets_nikhco/products/TempDeals_Logo.png" alt="TempDeals logo" />
+              </div>
+              <div class="app-meta">
                 <h3>TempDeals</h3>
-                <p class="tagline">Your best source for the best deals</p>
-                <span class="product-type type-site">Website</span>
+                <p>The day's best shopping deals, without the noise.</p>
+                <span class="app-platform">Website</span>
               </div>
-              <a class="card-cta" href="https://tempdeals.net" target="_blank" rel="noreferrer">
-                Visit &rarr;
-              </a>
-            </div>
-            <p class="card-desc">
-              TempDeals.net is an aggregator of shopping deals. It pulls
-              information from top coupon and deal websites, then presents them
-              in a clean, not-in-your-face format. With filters and an
-              easy-to-use interface, it makes deal hunting more fun.
-            </p>
-            <figure class="shot-wrap">
-              <img
-                class="shot"
-                src="assets_nikhco/products/TempDeals_Screenshot.png"
-                alt="TempDeals screenshot"
-              />
-            </figure>
-          </article>
+            </a>
 
-          <!-- TempMarks — compact right card -->
-          <article class="product-card bento-sm card-marks">
-            <div class="card-header">
-              <img
-                class="product-logo"
-                src="assets_nikhco/products/TempMarks_Logo.png"
-                alt="TempMarks logo"
-              />
-              <div>
+            <a class="app-tile app-tile--marks" href="#tempmarks">
+              <div class="app-icon">
+                <img src="assets_nikhco/products/TempMarks_Logo.png" alt="TempMarks logo" />
+              </div>
+              <div class="app-meta">
                 <h3>TempMarks</h3>
-                <p class="tagline">Fast, easy, temporary bookmarks</p>
-                <span class="product-type type-extension">Chrome Extension</span>
+                <p>Temporary bookmarks for links you only need for a while.</p>
+                <span class="app-platform">Chrome extension</span>
               </div>
-            </div>
-            <p class="card-desc">
-              Often some links are only relevant for a little while. TempMarks
-              gives you a fast, easy, temporary place to keep those links until
-              you are done with them.
-            </p>
-            <figure class="shot-wrap">
-              <img
-                class="shot"
-                src="assets_nikhco/products/TempMarks_Screenshot.png"
-                alt="TempMarks screenshot"
-              />
-            </figure>
-            <a class="card-cta" href="#" aria-label="Check out TempMarks">
-              Check it out &rarr;
             </a>
-          </article>
 
-          <!-- TempNote — compact right card -->
-          <article class="product-card bento-sm card-note">
-            <div class="card-header">
-              <img
-                class="product-logo"
-                src="assets_nikhco/products/TempNotes_Logo.png"
-                alt="TempNote logo"
-              />
-              <div>
+            <a class="app-tile app-tile--note" href="#tempnote">
+              <div class="app-icon">
+                <img src="assets_nikhco/products/TempNotes_Logo.png" alt="TempNote logo" />
+              </div>
+              <div class="app-meta">
                 <h3>TempNote</h3>
-                <p class="tagline">Hold some text while browsing</p>
-                <span class="product-type type-extension">Chrome Extension</span>
+                <p>A scratchpad that lives in the corner of your browser.</p>
+                <span class="app-platform">Chrome extension</span>
               </div>
-            </div>
-            <p class="card-desc">
-              Keep quick notes while browsing without cluttering long-term
-              notes. TempNote is a fast temporary scratchpad for the text you
-              only need right now.
-            </p>
-            <figure class="shot-wrap">
-              <img
-                class="shot"
-                src="assets_nikhco/products/TempNote_Screenshot.png"
-                alt="TempNote screenshot"
-              />
-            </figure>
-            <a class="card-cta" href="#" aria-label="Check out TempNote">
-              Check it out &rarr;
             </a>
-          </article>
+          </div>
         </div>
       </section>
 
-      <!-- RETIRED PRODUCTS -->
-      <section class="retired reveal">
-        <div class="section-label">
-          <span class="label-num">02 &mdash; Retired</span>
-          <h2>Good ideas we had to sunset.</h2>
-        </div>
-
-        <div class="retired-grid">
-          <article class="product-card card-d defunct-card">
-            <div class="card-header">
-              <img
-                class="product-logo"
-                src="assets_nikhco/products/X1Snap_Logo.png"
-                alt="X1Snap logo"
-              />
-              <div>
-                <h3>X1Snap</h3>
-                <p class="tagline">Social and live scores on Xbox One</p>
-                <span class="product-type type-app">Xbox App</span>
-              </div>
-            </div>
-            <p class="card-desc">
-              X1Snap brought Twitter, Facebook, and live sports scores into
-              Xbox Snap while gaming. Now discontinued as Xbox removed the Snap
-              functionality.
+      <!-- FEATURED: FIN -->
+      <section id="fin" class="feature feature--fin feature-alt">
+        <div class="section-inner feature-inner">
+          <div class="feature-media">
+            <img
+              src="assets_nikhco/products/fin_screenshot.png"
+              alt="Fin. for Mac — a quiet menu bar to-do list with color-coded lists and subtasks"
+              loading="lazy"
+            />
+          </div>
+          <div class="feature-body">
+            <p class="eyebrow eyebrow--accent">New · For Mac</p>
+            <h2>Fin.</h2>
+            <p class="feature-tagline">A quiet to-do list, right in your menu bar.</p>
+            <p>
+              Fin. is a free, minimalist task manager that lives in your Mac
+              menu bar. No accounts. No AI. No subscriptions. Just a clean,
+              dependable way to keep track of what needs doing — with
+              color-coded lists, subtasks, keyboard shortcuts, and iCloud sync
+              across your Macs.
             </p>
-            <figure class="shot-wrap">
-              <img
-                class="shot"
-                src="assets_nikhco/products/X1Snap_Screenshot.png"
-                alt="X1Snap screenshot"
-              />
-            </figure>
-            <span class="archived-tag">Archived</span>
-          </article>
-
-          <article class="product-card card-d defunct-card">
-            <div class="card-header">
-              <img
-                class="product-logo"
-                src="assets_nikhco/products/LinkedinReveal_Logo.png"
-                alt="LinkedIn Reveal logo"
-              />
-              <div>
-                <h3>LinkedIn Reveal</h3>
-                <p class="tagline">See the profile details LinkedIn hides</p>
-                <span class="product-type type-extension">Chrome Extension</span>
-              </div>
-            </div>
-            <p class="card-desc">
-              LinkedIn Reveal fixed a visibility issue where profile details
-              were hidden when coming from search results. It surfaced the
-              context users actually need, quickly and cleanly. Now
-              discontinued.
+            <p>
+              Built natively in Swift. Two megabytes on disk. An homage to the
+              beloved <em>Anxiety</em> app from 2007, rebuilt for modern macOS.
             </p>
-            <figure class="shot-wrap">
-              <img
-                class="shot"
-                src="assets_nikhco/products/LinkedinReveal_Screenshot.png"
-                alt="LinkedIn Reveal screenshot"
-              />
-            </figure>
-            <span class="archived-tag">Archived</span>
-          </article>
+            <a class="learn-more" href="https://fin.nikhco.in" target="_blank" rel="noreferrer">
+              Visit fin.nikhco.in <span aria-hidden="true">→</span>
+            </a>
+          </div>
         </div>
       </section>
 
-      <!-- ABOUT TEASER -->
-      <section class="about-teaser reveal">
-        <p class="kicker">Who we are</p>
-        <h2>Two brothers building focused software with product discipline.</h2>
-        <p>
-          NiKhCo. is a part-time product studio based in Canada &#x1F1E8;&#x1F1E6;. We apply
-          years of product and engineering experience to build small, reliable
-          tools for both leisure and business use cases.
-        </p>
-        <a class="btn btn-primary" href="about.html">Meet the founders &rarr;</a>
+      <!-- FEATURED: TEMPDEALS -->
+      <section id="tempdeals" class="feature feature--deals">
+        <div class="section-inner feature-inner">
+          <div class="feature-media">
+            <img
+              src="assets_nikhco/products/TempDeals_Screenshots.png"
+              alt="TempDeals — a clean feed of the web's best shopping deals, with filters and categories"
+              loading="lazy"
+            />
+          </div>
+          <div class="feature-body">
+            <p class="eyebrow eyebrow--accent">On the web</p>
+            <h2>TempDeals</h2>
+            <p class="feature-tagline">The day's best deals, without the noise.</p>
+            <p>
+              TempDeals gathers the most interesting bargains from the web's
+              leading coupon and deal sites, then presents them in a calm,
+              filterable feed. No pop-ups. No dark patterns. No five redirects
+              to reach a link — just a thoughtful place to find something worth
+              buying.
+            </p>
+            <a class="learn-more" href="https://tempdeals.net" target="_blank" rel="noreferrer">
+              Visit tempdeals.net <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- BROWSER TOOLS -->
+      <section class="feature-pair">
+        <div class="section-inner">
+          <p class="eyebrow pair-eyebrow">Browser tools</p>
+
+          <div class="pair-grid">
+            <article id="tempmarks" class="pair-card pair-card--marks">
+              <div class="pair-media">
+                <img
+                  src="assets_nikhco/products/TempMarks_Screenshot.png"
+                  alt="TempMarks — a drawer for temporary bookmarks"
+                  loading="lazy"
+                />
+              </div>
+              <div class="pair-body">
+                <h3>TempMarks</h3>
+                <p class="feature-tagline">Temporary bookmarks, done properly.</p>
+                <p>
+                  Some links only matter for a few hours — a recipe, a
+                  receipt, a tab you'll act on tomorrow. TempMarks gives you a
+                  separate drawer for those links, so your real bookmarks stay
+                  clean and meaningful.
+                </p>
+                <span class="learn-more learn-more-muted">Coming back soon</span>
+              </div>
+            </article>
+
+            <article id="tempnote" class="pair-card pair-card--note">
+              <div class="pair-media">
+                <img
+                  src="assets_nikhco/products/TempNote_Screenshot.png"
+                  alt="TempNote — a scratchpad that lives in your browser"
+                  loading="lazy"
+                />
+              </div>
+              <div class="pair-body">
+                <h3>TempNote</h3>
+                <p class="feature-tagline">A scratchpad, right where you browse.</p>
+                <p>
+                  TempNote is a lightweight notepad that sits in the corner of
+                  your browser. Good for addresses, order numbers, and the
+                  little bits of text you need for the next five minutes but
+                  not for the next five years.
+                </p>
+                <span class="learn-more learn-more-muted">Coming back soon</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- RETIRED -->
+      <section class="retired">
+        <div class="section-inner">
+          <div class="retired-head">
+            <p class="eyebrow">In the archive</p>
+            <h2>Good ideas we&rsquo;ve said goodbye&nbsp;to.</h2>
+            <p class="retired-lede">
+              Not every app earns a long life. These served their moment and
+              were retired when the platforms underneath them moved on.
+            </p>
+          </div>
+
+          <div class="retired-grid">
+            <article class="retired-card">
+              <div class="retired-icon">
+                <img
+                  src="assets_nikhco/products/X1Snap_Logo.png"
+                  alt="X1Snap logo"
+                  loading="lazy"
+                />
+              </div>
+              <div>
+                <h3>X1Snap <span class="retired-tag">Retired</span></h3>
+                <p>
+                  A social and live-scores companion that docked into the Xbox
+                  One's Snap view while you played. Retired when Xbox removed
+                  Snap entirely.
+                </p>
+              </div>
+            </article>
+
+            <article class="retired-card">
+              <div class="retired-icon">
+                <img
+                  src="assets_nikhco/products/LinkedinReveal_Logo.png"
+                  alt="LinkedIn Reveal logo"
+                  loading="lazy"
+                />
+              </div>
+              <div>
+                <h3>LinkedIn Reveal <span class="retired-tag">Retired</span></h3>
+                <p>
+                  A small browser extension that surfaced profile details
+                  LinkedIn chose to hide when arriving from search. Retired
+                  once the underlying behaviour changed.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" class="about">
+        <div class="section-inner about-inner">
+          <p class="eyebrow">About</p>
+          <h2>NiKhCo. is a small, independent software studio.</h2>
+          <p>
+            We build focused tools for everyday workflows — the kind of
+            software that earns its place by staying out of the way. Everything
+            we ship is made carefully, sold plainly, and supported directly.
+          </p>
+          <p class="about-meta">
+            <a href="https://www.nipunkhanna.com" target="_blank" rel="noreferrer">nipunkhanna.com</a>
+            <span class="sep">·</span>
+            <a href="https://www.nitinkhanna.com" target="_blank" rel="noreferrer">nitinkhanna.com</a>
+            <span class="sep">·</span>
+            <a href="mailto:hello@nikhco.com">hello@nikhco.com</a>
+          </p>
+        </div>
       </section>
     </main>
 
-    <footer class="site-footer">
-      <p>&copy; NiKhCo.</p>
-      <div class="footer-links">
-        <a href="mailto:hello@nikhco.com" aria-label="Email">Email us</a>
+    <footer class="site-footer" role="contentinfo">
+      <div class="footer-inner">
+        <div class="footer-row">
+          <div class="footer-left">
+            <span>&copy; NiKhCo.</span>
+            <span class="footer-divider">·</span>
+            <a href="mailto:hello@nikhco.com">hello@nikhco.com</a>
+          </div>
+          <div class="footer-right">
+            <span>Small software, patiently made.</span>
+          </div>
+        </div>
+        <div class="footer-row">
+          <div class="footer-left">
+            <span class="made-in-canada">
+              Proudly built in Canada
+              <span class="flag-ca" aria-label="Canadian flag" role="img">🇨🇦</span>
+            </span>
+          </div>
+          <div class="footer-right">
+            <span class="since">Independent since 2013</span>
+          </div>
+        </div>
       </div>
     </footer>
 

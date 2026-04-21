@@ -33,25 +33,17 @@
   });
 })();
 
-// ---- SCROLL REVEAL ----
-const revealItems = document.querySelectorAll(".reveal");
-
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-visible");
-        observer.unobserve(entry.target);
-      }
-    });
-  },
-  {
-    threshold: 0.2,
-    rootMargin: "0px 0px -40px 0px",
-  }
-);
-
-revealItems.forEach((item) => observer.observe(item));
+// ---- STICKY HEADER STATE ----
+(function () {
+  const header = document.querySelector(".top");
+  if (!header) return;
+  const onScroll = () => {
+    if (window.scrollY > 4) header.classList.add("is-scrolled");
+    else header.classList.remove("is-scrolled");
+  };
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+})();
 
 const prefersReducedMotion = window.matchMedia(
   "(prefers-reduced-motion: reduce)"
@@ -69,9 +61,28 @@ function setupLogoFlipAnimation() {
 
   const flipDurationMs = 1100;
   const flipStepMs = 220;
-  const initialDelayMs = 2400;
-  const minRepeatMs = 20000;
-  const maxRepeatMs = 30000;
+  const initialDelayMs = 1800;
+  const minRepeatMs = 7000;
+  const maxRepeatMs = 11000;
+
+  // Palette sourced from Radix UI step-10 scales — engineered for equal
+  // perceived luminance (~L* 50-55) across hues, so every chip carries the
+  // same visual weight as the neutral charcoal front. Hues sit ~90° apart
+  // on the wheel so nothing clashes when cycled in rapid sequence.
+  // Final "neutral" entry returns the chip to the default cell color so the
+  // cycle resets through black/cream before the next orange.
+  const palette = [
+    { bg: "#EF5F00", fg: "#FFF7ED", glow: "239,95,0" },     // orange-10
+    { bg: "#0D74CE", fg: "#F0F7FF", glow: "13,116,206" },   // blue-10
+    { bg: "#CA244D", fg: "#FFF0F3", glow: "202,36,77" },    // crimson-10
+    { bg: "#6E56CF", fg: "#F5F2FF", glow: "110,86,207" },   // violet-10
+    {                                                        // back to cell default
+      bg: "var(--logo-cell-bg)",
+      fg: "var(--logo-cell-fg)",
+      glow: "var(--logo-cell-glow)",
+    },
+  ];
+  let paletteIdx = 0;
 
   const randomRepeatDelay = () =>
     Math.floor(Math.random() * (maxRepeatMs - minRepeatMs + 1)) + minRepeatMs;
@@ -81,10 +92,23 @@ function setupLogoFlipAnimation() {
       return;
     }
 
+    const wasFlipped = word.classList.contains("is-flipped");
+    // Paint the incoming (currently hidden) face with the next palette color.
+    // This way every flip reveals a fresh color instead of returning to black.
+    const incomingSide = wasFlipped ? "front" : "back";
+    const color = palette[paletteIdx];
+    word.style.setProperty(`--logo-${incomingSide}-bg`, color.bg);
+    word.style.setProperty(`--logo-${incomingSide}-fg`, color.fg);
+    word.style.setProperty(`--logo-${incomingSide}-glow`, color.glow);
+    paletteIdx = (paletteIdx + 1) % palette.length;
+
     word.classList.add("is-flipping");
+    word.classList.add(wasFlipped ? "to-front" : "to-back");
+
     const totalDuration = flipDurationMs + (cells.length - 1) * flipStepMs;
     setTimeout(() => {
-      word.classList.remove("is-flipping");
+      word.classList.toggle("is-flipped");
+      word.classList.remove("is-flipping", "to-front", "to-back");
     }, totalDuration);
   };
 
@@ -114,6 +138,7 @@ function setupLogoFlipAnimation() {
 
       const back = document.createElement("span");
       back.className = "logo-face logo-back";
+      back.textContent = letter;
 
       flipper.appendChild(front);
       flipper.appendChild(back);
