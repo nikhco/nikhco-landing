@@ -65,15 +65,16 @@ function setupLogoFlipAnimation() {
   const minRepeatMs = 7000;
   const maxRepeatMs = 11000;
 
-  // Editorial palette — warm-leaning companions to the orange anchor,
-  // inspired by Aesop / Hermès / The Gentlewoman rather than web primaries.
-  // Forest and oxblood share an undertone family with the orange, so the
-  // cycle feels considered rather than rainbow-y. Final entry returns to
-  // the cell default so the sequence rests on black/cream before restarting.
+  // Hand-picked palette — orange anchor, then deep indigo, hot magenta,
+  // coral, and deep violet, with a return to the cell default (black/cream)
+  // before looping. Order chosen so adjacent chips have clearly distinct
+  // hues when flipping.
   const palette = [
     { bg: "#EF5F00", fg: "#FFF7ED", glow: "239,95,0" },     // orange
-    { bg: "#1F4536", fg: "#F4F1EA", glow: "31,69,54" },     // forest
-    { bg: "#7A1F2B", fg: "#FFF7ED", glow: "122,31,43" },    // oxblood
+    { bg: "#2E3C7D", fg: "#F0F4FF", glow: "46,60,125" },    // indigo
+    { bg: "#EB2188", fg: "#FFF0F5", glow: "235,33,136" },   // magenta
+    { bg: "#F96066", fg: "#FFF7ED", glow: "249,96,102" },   // coral
+    { bg: "#3B195A", fg: "#F5F2FF", glow: "59,25,90" },     // deep violet
     {                                                        // back to cell default
       bg: "var(--logo-cell-bg)",
       fg: "var(--logo-cell-fg)",
