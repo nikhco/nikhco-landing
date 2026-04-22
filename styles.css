@@ -798,6 +798,12 @@ p { color: var(--ink-2); }
     0 4px 10px -4px rgba(20,12,6,0.14);
   position: relative;
   z-index: 1;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.makers-photo:hover {
+  transform: translateY(-2px) rotate(-2deg);
+  box-shadow: var(--shadow-card);
 }
 
 .makers-photo img {
@@ -806,9 +812,6 @@ p { color: var(--ink-2); }
   object-fit: cover;
   display: block;
 }
-
-.makers-photo--1 { transform: rotate(-1.5deg); }
-.makers-photo--2 { transform: rotate(1.5deg); margin-top: 0.5rem; }
 
 .makers-body h2 {
   font-size: 1.9rem;
@@ -825,18 +828,14 @@ p { color: var(--ink-2); }
 
 .makers-body p { font-size: 1rem; line-height: 1.55; margin-bottom: 0.75rem; }
 
-.makers-sig {
-  margin-top: 1.4rem;
-  font-size: 0.95rem;
-  color: var(--ink);
-}
-
 .makers-role {
+  margin-top: 0.5rem;
   color: var(--muted);
   font-size: 0.85rem;
+  letter-spacing: 0.01em;
 }
 
-.makers-body .about-meta { margin-top: 1.25rem; }
+.makers-body .about-meta { margin-top: 1.25rem; margin-bottom: 0; }
 
 @media (max-width: 720px) {
   .about-inner.makers {
