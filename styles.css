@@ -841,7 +841,11 @@ p { color: var(--ink-2); }
     grid-template-columns: 1fr;
     gap: 1.75rem;
   }
-  .makers-photos { justify-content: flex-start; }
+  .makers-photos {
+    justify-content: flex-start;
+    justify-self: start;
+    width: fit-content;
+  }
   .makers-photo { width: 118px; }
   .makers-body h2 { font-size: 1.6rem; }
 }
