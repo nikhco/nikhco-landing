@@ -36,17 +36,6 @@
   --tint-apps: #FBFAF7;
   --tint-about: #FFFFFF;
 
-  /* Logo cell (always-on chip — dark chip on light page for contrast) */
-  --logo-cell-bg: #232328;
-  --logo-cell-fg: #FBFAF7;
-  --logo-front-bg: var(--logo-cell-bg);
-  --logo-front-fg: var(--logo-cell-fg);
-  --logo-cell-glow: 14,14,15;
-  --logo-front-glow: var(--logo-cell-glow);
-  --logo-back-bg: #EF5F00;
-  --logo-back-fg: #FFF7ED;
-  --logo-back-glow: 239,95,0;
-
   --shadow-card: 0 1px 0 rgba(0,0,0,0.02), 0 12px 32px -18px rgba(20,12,6,0.16);
   --shadow-soft: 0 1px 0 rgba(0,0,0,0.03), 0 8px 18px -14px rgba(20,12,6,0.18);
   --ring: 0 0 0 1px var(--border);
@@ -83,16 +72,6 @@
   --tint-retired: #111113;
   --tint-apps: #0E0E0F;
   --tint-about: #0E0E0F;
-
-  --logo-cell-bg: #F3F1EC;
-  --logo-cell-fg: #0E0E0F;
-  --logo-front-bg: var(--logo-cell-bg);
-  --logo-front-fg: var(--logo-cell-fg);
-  --logo-cell-glow: 200,195,180;
-  --logo-front-glow: var(--logo-cell-glow);
-  --logo-back-bg: #EF5F00;
-  --logo-back-fg: #FFF7ED;
-  --logo-back-glow: 239,95,0;
 
   --shadow-card: 0 1px 0 rgba(0,0,0,0.4), 0 20px 40px -24px rgba(0,0,0,0.7);
   --shadow-soft: 0 1px 0 rgba(0,0,0,0.35), 0 10px 24px -18px rgba(0,0,0,0.7);
@@ -162,129 +141,15 @@ em {
   align-items: center;
 }
 
-/* ---------- Logo (always-on card cells + flip) ---------- */
-.logo-word {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  color: var(--ink);
-  flex-shrink: 0;
-}
-
-.logo-cell {
-  position: relative;
-  display: inline-grid;
-  place-items: center;
-  width: 30px;
-  height: 40px;
-  flex: 0 0 30px;
-  font-family: "Inter", sans-serif;
-  font-weight: 700;
-  font-size: 1.06rem;
-  line-height: 1;
-  letter-spacing: 0;
+/* ---------- Logo (animated keycap embed) ---------- */
+.logo-embed {
+  display: block;
+  width: 240px;
+  height: 52px;
+  border: 0;
   background: transparent;
-  color: var(--logo-cell-fg);
-}
-
-.logo-flipper {
-  position: absolute;
-  inset: 0;
-}
-
-.logo-face {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  border-radius: 8px;
-  font: inherit;
-  transform-origin: center center;
-  will-change: transform;
-  transform: translateZ(0);
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-}
-
-.logo-front {
-  background: linear-gradient(155deg,
-    color-mix(in srgb, var(--logo-front-bg) 72%, white 28%) 0%,
-    var(--logo-front-bg) 55%,
-    color-mix(in srgb, var(--logo-front-bg) 82%, black 18%) 100%);
-  color: var(--logo-front-fg);
-  transform: scaleX(1);
-  z-index: 2;
-  box-shadow:
-    0 1px 0 rgba(255,255,255,0.22) inset,
-    0 -1px 0 rgba(0,0,0,0.2) inset,
-    0 1px 0 color-mix(in srgb, var(--logo-front-bg) 55%, black 45%),
-    0 4px 6px -1px rgba(var(--logo-front-glow), 0.32),
-    0 8px 14px -8px rgba(var(--logo-front-glow), 0.3);
-  transition: background 220ms ease, color 220ms ease, box-shadow 220ms ease;
-}
-
-.logo-back {
-  background: linear-gradient(155deg,
-    color-mix(in srgb, var(--logo-back-bg) 78%, white 22%) 0%,
-    var(--logo-back-bg) 55%,
-    color-mix(in srgb, var(--logo-back-bg) 80%, black 20%) 100%);
-  color: var(--logo-back-fg);
-  transform: scaleX(0);
-  z-index: 1;
-  box-shadow:
-    0 1px 0 rgba(255,255,255,0.3) inset,
-    0 -1px 0 rgba(0,0,0,0.2) inset,
-    0 1px 0 color-mix(in srgb, var(--logo-back-bg) 52%, black 48%),
-    0 4px 6px -1px rgba(var(--logo-back-glow), 0.35),
-    0 8px 14px -8px rgba(var(--logo-back-glow), 0.32);
-  transition: background 220ms ease, color 220ms ease, box-shadow 220ms ease;
-}
-
-/* Dark mode — bump gradient so the cream chip shows depth too */
-[data-theme="dark"] .logo-front {
-  background: linear-gradient(155deg,
-    #FDFCF8 0%,
-    var(--logo-front-bg) 48%,
-    color-mix(in srgb, var(--logo-front-bg) 68%, #2a2a2a 32%) 100%);
-  box-shadow:
-    0 1px 0 rgba(255,255,255,0.35) inset,
-    0 -1px 0 rgba(0,0,0,0.2) inset,
-    0 1px 0 color-mix(in srgb, var(--logo-front-bg) 50%, #1a1a1a 50%),
-    0 4px 6px -1px rgba(0,0,0,0.5),
-    0 10px 16px -8px rgba(0,0,0,0.5);
-}
-[data-theme="dark"] .logo-back {
-  background: linear-gradient(155deg,
-    color-mix(in srgb, var(--logo-back-bg) 75%, white 25%) 0%,
-    var(--logo-back-bg) 50%,
-    color-mix(in srgb, var(--logo-back-bg) 72%, black 28%) 100%);
-}
-
-/* Resting flipped state: back visible, front hidden */
-.logo-word.is-flipped .logo-front { transform: scaleX(0); }
-.logo-word.is-flipped .logo-back  { transform: scaleX(1); }
-
-/* During flip to-back: front shrinks in first half, back grows in second */
-.logo-word.is-flipping.to-back .logo-front,
-.logo-word.is-flipping.to-front .logo-back {
-  animation: logoShrinkFirst 1100ms cubic-bezier(0.65, 0, 0.35, 1) both;
-  animation-delay: var(--flip-delay, 0ms);
-}
-
-.logo-word.is-flipping.to-back .logo-back,
-.logo-word.is-flipping.to-front .logo-front {
-  animation: logoGrowSecond 1100ms cubic-bezier(0.65, 0, 0.35, 1) both;
-  animation-delay: var(--flip-delay, 0ms);
-}
-
-@keyframes logoShrinkFirst {
-  0%   { transform: scaleX(1); }
-  50%, 100% { transform: scaleX(0); }
-}
-
-@keyframes logoGrowSecond {
-  0%, 50% { transform: scaleX(0); }
-  100% { transform: scaleX(1); }
+  /* Decorative animation; the wrapping <a> handles the click. */
+  pointer-events: none;
 }
 
 /* ---------- Nav ---------- */
@@ -924,15 +789,7 @@ p { color: var(--ink-2); }
   .footer-row { flex-direction: column; align-items: flex-start; gap: 0.4rem; }
   .footer-inner { padding: 2rem 1.25rem; }
 
-  .logo-word { gap: 3px; }
-  .logo-cell {
-    width: 26px;
-    height: 34px;
-    flex: 0 0 26px;
-    font-size: 0.94rem;
-    border-radius: 7px;
-  }
-  .logo-face { border-radius: 7px; }
+  .logo-embed { width: 200px; height: 48px; }
 }
 
 @media (max-width: 520px) {
@@ -942,24 +799,16 @@ p { color: var(--ink-2); }
   .app-tile { padding: 1.1rem 1.1rem; gap: 1rem; }
   .app-icon { flex: 0 0 62px; width: 62px; height: 62px; border-radius: 14px; }
 
-  .logo-word { gap: 2px; }
-  .logo-cell {
-    width: 22px;
-    height: 30px;
-    flex: 0 0 22px;
-    font-size: 0.84rem;
-    border-radius: 6px;
-  }
-  .logo-face { border-radius: 6px; }
+  .logo-embed { width: 168px; height: 44px; }
 }
 
 @media (max-width: 400px) {
   .top-nav { gap: 0.55rem; }
   .top-nav a { font-size: 0.78rem; }
+  .logo-embed { width: 150px; height: 40px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .app-tile, .logo-tile, .learn-more, .pair-card { transition: none; }
-  .logo-word.is-flipping .logo-flipper { animation: none; }
 }
