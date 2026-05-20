@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <title>NiKhCo. Logo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
   --letter: #ffffff;
@@ -51,20 +54,20 @@ html, body { margin: 0; padding: 0; background: transparent; overflow: hidden; }
   mask-size: 100% 100%;
   mask-repeat: no-repeat;
   pointer-events: none;
-  transition: background 0.15s ease;
+  transition: background 0.45s ease-out;
 }
 .letter {
   position: absolute; top: 5%; left: 10%; width: 78%; height: 70%;
   display: flex; align-items: center; justify-content: center; text-align: center;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 500; font-size: calc(var(--keycap-size) * 0.427); color: var(--letter);
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-weight: 500; font-size: calc(var(--keycap-size) * 0.47); color: var(--letter);
   user-select: none; pointer-events: none; line-height: 1; z-index: 2;
   text-shadow:
     0 calc(1px * var(--emboss)) calc(1px * var(--emboss)) rgba(0,0,0,calc(0.45 * var(--emboss))),
     0 calc(2px * var(--emboss)) calc(3px * var(--emboss)) rgba(0,0,0,calc(0.25 * var(--emboss))),
     0 calc(-1px * var(--emboss)) 0 rgba(255,255,255,calc(0.35 * var(--emboss)));
 }
-.keycap-clip.period .letter { font-size: calc(var(--keycap-size) * 0.47); }
+.keycap-clip.period .letter { font-size: calc(var(--keycap-size) * 0.52); }
 @keyframes singlePress {
   0% { transform: translateY(0); }
   50% { transform: translateY(var(--press-depth)); }
@@ -112,6 +115,9 @@ html, body { margin: 0; padding: 0; background: transparent; overflow: hidden; }
         kc.classList.remove('pressing');
         void kc.offsetWidth;
         kc.classList.add('pressing');
+        // Trigger the color swap at the bottom of the press; the long
+        // eased background transition then cross-fades it gently through
+        // the up-stroke, so the change reads as a soft settle, not a snap.
         setTimeout(() => setKeyColor(i, next), PRESS_TIME / 2);
         setTimeout(() => kc.classList.remove('pressing'), PRESS_TIME + 10);
       }, i * STAGGER);

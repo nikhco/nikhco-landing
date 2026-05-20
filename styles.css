@@ -115,7 +115,7 @@ em {
   position: sticky;
   top: 0;
   z-index: 50;
-  padding: 0.9rem 1.5rem;
+  padding: 0.5rem 1.5rem;
   background: color-mix(in srgb, var(--bg) 82%, transparent);
   backdrop-filter: saturate(180%) blur(14px);
   -webkit-backdrop-filter: saturate(180%) blur(14px);
@@ -144,8 +144,8 @@ em {
 /* ---------- Logo (animated keycap embed) ---------- */
 .logo-embed {
   display: block;
-  width: 240px;
-  height: 52px;
+  width: 312px;
+  height: 60px;
   border: 0;
   background: transparent;
   /* Decorative animation; the wrapping <a> handles the click. */
@@ -789,7 +789,7 @@ p { color: var(--ink-2); }
   .footer-row { flex-direction: column; align-items: flex-start; gap: 0.4rem; }
   .footer-inner { padding: 2rem 1.25rem; }
 
-  .logo-embed { width: 200px; height: 48px; }
+  .logo-embed { width: 260px; height: 52px; }
 }
 
 @media (max-width: 520px) {
@@ -799,13 +799,13 @@ p { color: var(--ink-2); }
   .app-tile { padding: 1.1rem 1.1rem; gap: 1rem; }
   .app-icon { flex: 0 0 62px; width: 62px; height: 62px; border-radius: 14px; }
 
-  .logo-embed { width: 168px; height: 44px; }
+  .logo-embed { width: min(190px, 100vw - 230px); height: 38px; }
 }
 
 @media (max-width: 400px) {
   .top-nav { gap: 0.55rem; }
   .top-nav a { font-size: 0.78rem; }
-  .logo-embed { width: 150px; height: 40px; }
+  .logo-embed { width: min(162px, 100vw - 216px); height: 34px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
