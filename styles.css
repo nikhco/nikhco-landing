@@ -19,6 +19,8 @@
   /* Brand accents — used subtly across sections */
   --accent-fin: #FF9500;
   --accent-fin-2: #FFD93D;
+  --accent-tripwallet: #2E7CF6;
+  --accent-tripwallet-2: #E8C36A;
   --accent-deals: #3E7BD6;
   --accent-marks: #E0335B;
   --accent-note: #7A5FCE;
@@ -29,6 +31,7 @@
   --tint-hero-via:  #FBE7F1;
   --tint-hero-to:   #EDE5FB;
   --tint-fin:   #FFF5E2;
+  --tint-tripwallet: #EAF1FE;
   --tint-deals: #ECF2FB;
   --tint-marks: #FCEBEF;
   --tint-note:  #F1ECFB;
@@ -57,6 +60,8 @@
 
   --accent-fin: #FFB64A;
   --accent-fin-2: #FFD93D;
+  --accent-tripwallet: #4D8DFF;
+  --accent-tripwallet-2: #E8C36A;
   --accent-deals: #6AA0F2;
   --accent-marks: #F25A7C;
   --accent-note: #A488E8;
@@ -66,6 +71,7 @@
   --tint-hero-via:  #1A0F15;
   --tint-hero-to:   #120E1A;
   --tint-fin:   #1E170F;
+  --tint-tripwallet: #0D1526;
   --tint-deals: #0F1826;
   --tint-marks: #261018;
   --tint-note:  #1A1330;
@@ -344,6 +350,7 @@ p { color: var(--ink-2); }
   box-shadow: var(--shadow-card);
 }
 
+.app-tile--tripwallet { --tile-accent: var(--accent-tripwallet); }
 .app-tile--fin   { --tile-accent: var(--accent-fin); }
 .app-tile--deals { --tile-accent: var(--accent-deals); }
 .app-tile--marks { --tile-accent: var(--accent-marks); }
@@ -413,6 +420,7 @@ p { color: var(--ink-2); }
 
 /* ---------- Feature (full-width colored spotlight) ---------- */
 .feature { --section-accent: var(--ink); background: var(--bg); }
+.feature--tripwallet { background: var(--tint-tripwallet); --section-accent: var(--accent-tripwallet); }
 .feature--fin   { background: var(--tint-fin);   --section-accent: var(--accent-fin); }
 .feature--deals { background: var(--tint-deals); --section-accent: var(--accent-deals); }
 
