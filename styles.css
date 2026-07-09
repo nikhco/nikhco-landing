@@ -19,6 +19,7 @@
   /* Brand accents — used subtly across sections */
   --accent-fin: #FF9500;
   --accent-fin-2: #FFD93D;
+  --accent-knob: #A67C35;
   --accent-tripwallet: #2E7CF6;
   --accent-tripwallet-2: #E8C36A;
   --accent-deals: #3E7BD6;
@@ -31,6 +32,7 @@
   --tint-hero-via:  #FBE7F1;
   --tint-hero-to:   #EDE5FB;
   --tint-fin:   #FFF5E2;
+  --tint-knob:  #F7F0DD;
   --tint-tripwallet: #EAF1FE;
   --tint-deals: #ECF2FB;
   --tint-marks: #FCEBEF;
@@ -60,6 +62,7 @@
 
   --accent-fin: #FFB64A;
   --accent-fin-2: #FFD93D;
+  --accent-knob: #D4AF37;
   --accent-tripwallet: #4D8DFF;
   --accent-tripwallet-2: #E8C36A;
   --accent-deals: #6AA0F2;
@@ -71,6 +74,7 @@
   --tint-hero-via:  #1A0F15;
   --tint-hero-to:   #120E1A;
   --tint-fin:   #1E170F;
+  --tint-knob:  #1B1508;
   --tint-tripwallet: #0D1526;
   --tint-deals: #0F1826;
   --tint-marks: #261018;
@@ -117,14 +121,14 @@ em {
 }
 
 /* ---------- Header ---------- */
+/* Fully transparent at page load; the translucent glass appears only once
+   the user scrolls (script.js toggles .is-scrolled). */
 .top {
   position: sticky;
   top: 0;
   z-index: 50;
   padding: 0.5rem 1.5rem;
-  background: color-mix(in srgb, var(--bg) 82%, transparent);
-  backdrop-filter: saturate(180%) blur(14px);
-  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  background: transparent;
   border-bottom: 1px solid transparent;
   transition: border-color 0.2s ease, background-color 0.25s ease;
 }
@@ -140,6 +144,9 @@ em {
 
 .top.is-scrolled {
   border-bottom-color: var(--border-soft);
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
+  backdrop-filter: saturate(180%) blur(14px);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
 }
 
 .logo-tile {
@@ -150,8 +157,8 @@ em {
 /* ---------- Logo (animated keycap embed) ---------- */
 .logo-embed {
   display: block;
-  width: 312px;
-  height: 60px;
+  width: 281px;
+  height: 54px;
   border: 0;
   background: transparent;
   /* Decorative animation; the wrapping <a> handles the click. */
@@ -303,12 +310,15 @@ p { color: var(--ink-2); }
 }
 
 /* ---------- Apps grid ---------- */
+/* Colorful but quiet: warm/cool radials drifting over a soft vertical wash,
+   so the section reads as a continuation of the hero rather than flat grey. */
 .apps {
   position: relative;
   background:
-    radial-gradient(900px 520px at 92% 18%, var(--tint-fin) 0%, transparent 58%),
-    radial-gradient(780px 460px at 6% 82%, var(--tint-deals) 0%, transparent 56%),
-    var(--bg-soft);
+    radial-gradient(1000px 560px at 92% 12%, var(--tint-fin) 0%, transparent 62%),
+    radial-gradient(860px 520px at 4% 78%, var(--tint-deals) 0%, transparent 60%),
+    radial-gradient(760px 460px at 55% 108%, var(--tint-note) 0%, transparent 62%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 45%, var(--tint-hero-via) 130%);
   overflow: hidden;
 }
 
@@ -350,6 +360,7 @@ p { color: var(--ink-2); }
   box-shadow: var(--shadow-card);
 }
 
+.app-tile--knob { --tile-accent: var(--accent-knob); }
 .app-tile--tripwallet { --tile-accent: var(--accent-tripwallet); }
 .app-tile--fin   { --tile-accent: var(--accent-fin); }
 .app-tile--deals { --tile-accent: var(--accent-deals); }
@@ -420,6 +431,7 @@ p { color: var(--ink-2); }
 
 /* ---------- Feature (full-width colored spotlight) ---------- */
 .feature { --section-accent: var(--ink); background: var(--bg); }
+.feature--knob  { background: var(--tint-knob);  --section-accent: var(--accent-knob); }
 .feature--tripwallet { background: var(--tint-tripwallet); --section-accent: var(--accent-tripwallet); }
 .feature--fin   { background: var(--tint-fin);   --section-accent: var(--accent-fin); }
 .feature--deals { background: var(--tint-deals); --section-accent: var(--accent-deals); }
@@ -797,7 +809,7 @@ p { color: var(--ink-2); }
   .footer-row { flex-direction: column; align-items: flex-start; gap: 0.4rem; }
   .footer-inner { padding: 2rem 1.25rem; }
 
-  .logo-embed { width: 260px; height: 52px; }
+  .logo-embed { width: 234px; height: 47px; }
 }
 
 @media (max-width: 520px) {
@@ -807,13 +819,13 @@ p { color: var(--ink-2); }
   .app-tile { padding: 1.1rem 1.1rem; gap: 1rem; }
   .app-icon { flex: 0 0 62px; width: 62px; height: 62px; border-radius: 14px; }
 
-  .logo-embed { width: min(190px, 100vw - 230px); height: 38px; }
+  .logo-embed { width: min(171px, 100vw - 230px); height: 34px; }
 }
 
 @media (max-width: 400px) {
   .top-nav { gap: 0.55rem; }
   .top-nav a { font-size: 0.78rem; }
-  .logo-embed { width: min(162px, 100vw - 216px); height: 34px; }
+  .logo-embed { width: min(146px, 100vw - 216px); height: 31px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
