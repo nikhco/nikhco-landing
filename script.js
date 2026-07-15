@@ -45,12 +45,28 @@
   window.addEventListener("scroll", onScroll, { passive: true });
 })();
 
-// ---- HERO VIDEO AUTOPLAY (nudge browsers that don't honor autoplay) ----
+// ---- HERO COMPUTER (transparent video + Safari image fallback) ----
 (function () {
+  const media = document.querySelector(".hero-media");
+  if (!media) return;
+  const video = media.querySelector(".hero-video");
+  const fallback = media.querySelector(".hero-media-fallback");
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  // Safari can't decode VP9-with-alpha and paints a black box, so never let it
+  // try. Show the image instead (animated transparent WebP, unless reduced motion).
+  const canWebm = !!(video && video.canPlayType &&
+    video.canPlayType('video/webm; codecs="vp9"'));
+
+  if (!canWebm) {
+    if (fallback && !reduce.matches && fallback.dataset.anim) {
+      fallback.src = fallback.dataset.anim;
+    }
+    media.classList.add("is-static");
+    return;
+  }
+
   if (reduce.matches) return;
-  const video = document.querySelector(".hero-video");
-  if (!video) return;
   const kick = () => { const p = video.play(); if (p && p.catch) p.catch(function () {}); };
   kick();
   document.addEventListener("visibilitychange", function () {

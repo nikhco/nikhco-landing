@@ -338,6 +338,11 @@ p { color: var(--ink-2); }
 
 .hero-media-fallback { display: none; }
 
+/* When the browser can't play the transparent WebM (Safari), script.js adds
+   .is-static: hide the (black-rendering) video and show the image instead. */
+.hero-media.is-static .hero-video { display: none; }
+.hero-media.is-static .hero-media-fallback { display: block; }
+
 @keyframes heroFloat {
   0%   { transform: translateY(-6px); }
   100% { transform: translateY(10px); }

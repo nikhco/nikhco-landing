@@ -276,6 +276,9 @@
             </p>
           </div>
           <div class="hero-media" aria-hidden="true">
+            <!-- Transparent VP9 video for Chrome/Firefox/Edge. Safari can't play
+                 VP9-alpha (it renders black), so script.js detects that and shows
+                 the image below instead — swapped to an animated transparent WebP. -->
             <video
               class="hero-video"
               autoplay
@@ -285,13 +288,12 @@
               preload="auto"
               poster="assets_nikhco/hero-computer.png?v=DEV"
             >
-              <!-- Safari first (HEVC + alpha), then Chrome/Firefox (VP9 + alpha) -->
-              <source src="assets_nikhco/hero-computer.mov?v=DEV" type="video/quicktime" />
               <source src="assets_nikhco/hero-computer.webm?v=DEV" type="video/webm" />
             </video>
             <img
               class="hero-media-fallback"
               src="assets_nikhco/hero-computer.png?v=DEV"
+              data-anim="assets_nikhco/hero-computer.webp?v=DEV"
               alt=""
             />
           </div>
