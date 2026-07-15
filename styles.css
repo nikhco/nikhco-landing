@@ -353,11 +353,13 @@ p { color: var(--ink-2); }
    so the section reads as a continuation of the hero rather than flat grey. */
 .apps {
   position: relative;
+  /* Calm hand-off from the hero: the top ~25% stays flat cream (matching the
+     hero's cream bottom) so there's no colour band at the seam. Colour only
+     builds up gently far below the fold, echoing the hero's cool accents. */
   background:
-    radial-gradient(1300px 680px at 50% -10%, var(--tint-fin) 0%, transparent 60%),
-    radial-gradient(780px 520px at 10% 90%, var(--tint-deals) 0%, transparent 62%),
-    radial-gradient(780px 520px at 90% 94%, var(--tint-note) 0%, transparent 62%),
-    linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 55%, var(--tint-hero-via) 135%);
+    radial-gradient(1000px 640px at 14% 112%, var(--tint-deals) 0%, transparent 60%),
+    radial-gradient(1000px 640px at 86% 118%, var(--tint-note) 0%, transparent 60%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg) 24%, var(--bg-soft) 72%, var(--tint-hero-via) 128%);
   overflow: hidden;
 }
 
