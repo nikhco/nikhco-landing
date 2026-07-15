@@ -124,8 +124,10 @@ em {
 /* Fully transparent at page load; the translucent glass appears only once
    the user scrolls (script.js toggles .is-scrolled). */
 .top {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 50;
   padding: 0.5rem 1.5rem;
   background: transparent;
@@ -309,16 +311,48 @@ p { color: var(--ink-2); }
   line-height: 1.55;
 }
 
+/* Two-column hero: copy on the left, floating retro computer on the right. */
+.hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  align-items: center;
+  gap: 3rem;
+}
+
+.hero-media {
+  position: relative;
+  justify-self: center;
+  width: 100%;
+  max-width: 440px;
+}
+
+.hero-video,
+.hero-media-fallback {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* Gentle idle float so the object feels alive against the gradient. */
+  animation: heroFloat 6s ease-in-out infinite alternate;
+  filter: drop-shadow(0 24px 40px rgba(20, 12, 4, 0.18));
+}
+
+.hero-media-fallback { display: none; }
+
+@keyframes heroFloat {
+  0%   { transform: translateY(-6px); }
+  100% { transform: translateY(10px); }
+}
+
 /* ---------- Apps grid ---------- */
 /* Colorful but quiet: warm/cool radials drifting over a soft vertical wash,
    so the section reads as a continuation of the hero rather than flat grey. */
 .apps {
   position: relative;
   background:
-    radial-gradient(1000px 560px at 92% 12%, var(--tint-fin) 0%, transparent 62%),
-    radial-gradient(860px 520px at 4% 78%, var(--tint-deals) 0%, transparent 60%),
-    radial-gradient(760px 460px at 55% 108%, var(--tint-note) 0%, transparent 62%),
-    linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 45%, var(--tint-hero-via) 130%);
+    radial-gradient(1300px 680px at 50% -10%, var(--tint-fin) 0%, transparent 60%),
+    radial-gradient(780px 520px at 10% 90%, var(--tint-deals) 0%, transparent 62%),
+    radial-gradient(780px 520px at 90% 94%, var(--tint-note) 0%, transparent 62%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 55%, var(--tint-hero-via) 135%);
   overflow: hidden;
 }
 
@@ -798,6 +832,8 @@ p { color: var(--ink-2); }
   .top-nav { gap: 0.9rem; }
   section { padding: 4.5rem 1.25rem; }
   .hero { padding-top: 6.5rem; padding-bottom: 7rem; }
+  .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; justify-items: start; }
+  .hero-media { order: -1; max-width: 300px; justify-self: center; }
   .hero-glow-2 {
     width: 420px;
     height: 340px;
@@ -838,4 +874,7 @@ p { color: var(--ink-2); }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .app-tile, .logo-tile, .learn-more, .pair-card { transition: none; }
+  /* Swap the animated computer for its static poster frame. */
+  .hero-video { display: none; }
+  .hero-media-fallback { display: block; animation: none; }
 }

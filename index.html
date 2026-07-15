@@ -268,11 +268,33 @@
         <div class="hero-glow" aria-hidden="true"></div>
         <div class="hero-glow-2" aria-hidden="true"></div>
         <div class="section-inner hero-inner">
-          <h1>Small software,<br><em>patiently</em> crafted.</h1>
-          <p class="hero-sub">
-            An independent studio building quiet, dependable apps for the Mac
-            and the web.
-          </p>
+          <div class="hero-copy">
+            <h1>Small software,<br><em>patiently</em> crafted.</h1>
+            <p class="hero-sub">
+              An independent studio building quiet, dependable apps for the Mac
+              and the web.
+            </p>
+          </div>
+          <div class="hero-media" aria-hidden="true">
+            <video
+              class="hero-video"
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="auto"
+              poster="assets_nikhco/hero-computer.png?v=DEV"
+            >
+              <!-- Safari first (HEVC + alpha), then Chrome/Firefox (VP9 + alpha) -->
+              <source src="assets_nikhco/hero-computer.mov?v=DEV" type="video/quicktime" />
+              <source src="assets_nikhco/hero-computer.webm?v=DEV" type="video/webm" />
+            </video>
+            <img
+              class="hero-media-fallback"
+              src="assets_nikhco/hero-computer.png?v=DEV"
+              alt=""
+            />
+          </div>
         </div>
       </section>
 

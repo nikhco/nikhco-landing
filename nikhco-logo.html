@@ -8,6 +8,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
+  /* Declare dark support so the browser keeps the iframe backdrop transparent
+     in system dark mode instead of painting an opaque (white) canvas. */
+  color-scheme: light dark;
   --letter: #ffffff;
   --emboss: 0.7;
   --press-time: 0.6s;

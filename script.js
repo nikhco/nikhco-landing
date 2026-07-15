@@ -44,3 +44,16 @@
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
 })();
+
+// ---- HERO VIDEO AUTOPLAY (nudge browsers that don't honor autoplay) ----
+(function () {
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+  if (reduce.matches) return;
+  const video = document.querySelector(".hero-video");
+  if (!video) return;
+  const kick = () => { const p = video.play(); if (p && p.catch) p.catch(function () {}); };
+  kick();
+  document.addEventListener("visibilitychange", function () {
+    if (!document.hidden) kick();
+  });
+})();
