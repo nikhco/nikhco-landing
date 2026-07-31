@@ -25,6 +25,7 @@
   --accent-deals: #3E7BD6;
   --accent-marks: #E0335B;
   --accent-note: #7A5FCE;
+  --accent-mantra: #2F9E77;
   --accent-ink: #0E0E0F;
 
   /* Section tints (light mode) */
@@ -37,6 +38,7 @@
   --tint-deals: #ECF2FB;
   --tint-marks: #FCEBEF;
   --tint-note:  #F1ECFB;
+  --tint-mantra: #E8F5EF;
   --tint-retired: #F4F2EC;
   --tint-apps: #FBFAF7;
   --tint-about: #FFFFFF;
@@ -68,6 +70,7 @@
   --accent-deals: #6AA0F2;
   --accent-marks: #F25A7C;
   --accent-note: #A488E8;
+  --accent-mantra: #4ECDA0;
   --accent-ink: #F3F1EC;
 
   --tint-hero-from: #1B140E;
@@ -79,6 +82,7 @@
   --tint-deals: #0F1826;
   --tint-marks: #261018;
   --tint-note:  #1A1330;
+  --tint-mantra: #0F2119;
   --tint-retired: #111113;
   --tint-apps: #0E0E0F;
   --tint-about: #0E0E0F;
@@ -407,6 +411,7 @@ p { color: var(--ink-2); }
 .app-tile--deals { --tile-accent: var(--accent-deals); }
 .app-tile--marks { --tile-accent: var(--accent-marks); }
 .app-tile--note  { --tile-accent: var(--accent-note); }
+.app-tile--mantra { --tile-accent: var(--accent-mantra); }
 
 .app-icon {
   flex: 0 0 78px;
@@ -483,6 +488,7 @@ p { color: var(--ink-2); }
 .feature--tripwallet { background: var(--tint-tripwallet); --section-accent: var(--accent-tripwallet); }
 .feature--fin   { background: var(--tint-fin);   --section-accent: var(--accent-fin); }
 .feature--deals { background: var(--tint-deals); --section-accent: var(--accent-deals); }
+.feature--mantra { background: var(--tint-mantra); --section-accent: var(--accent-mantra); }
 
 .feature-inner {
   display: grid;
