@@ -65,6 +65,7 @@ html, body { margin: 0; padding: 0; background: transparent; overflow: hidden; }
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   font-weight: 500; font-size: calc(var(--keycap-size) * 0.47); color: var(--letter);
   user-select: none; pointer-events: none; line-height: 1; z-index: 2;
+  transition: color 0.45s ease-out, text-shadow 0.45s ease-out;
   text-shadow:
     0 calc(1px * var(--emboss)) calc(1px * var(--emboss)) rgba(0,0,0,calc(0.45 * var(--emboss))),
     0 calc(2px * var(--emboss)) calc(3px * var(--emboss)) rgba(0,0,0,calc(0.25 * var(--emboss))),
@@ -100,7 +101,19 @@ html, body { margin: 0; padding: 0; background: transparent; overflow: hidden; }
 </div>
 <script>
 (function() {
-  const CYCLE = ["#ff862a","#1e7bff","#f3cd12","#ff4499","#00f943","#cc76fd","#00c2d1"];
+  // Warm, vivid palette derived from the Atomic Semi keycap logo — each
+  // source color pushed warmer and more saturated, except periwinkle which
+  // already sits warm enough to keep as-is. Bone is the neutral rest beat
+  // and carries dark letters, so each entry defines its own letter color
+  // and emboss strength.
+  const CYCLE = [
+    { bg: "#6EAF3D", fg: "#FFFFFF", emboss: 0.7  },  // leaf
+    { bg: "#E85D3A", fg: "#FFFFFF", emboss: 0.7  },  // persimmon
+    { bg: "#F0AA00", fg: "#FFFFFF", emboss: 0.7  },  // marigold
+    { bg: "#E93E80", fg: "#FFFFFF", emboss: 0.7  },  // hot berry
+    { bg: "#6E8DF9", fg: "#FFFFFF", emboss: 0.7  },  // periwinkle
+    { bg: "#8A7154", fg: "#FFF8EC", emboss: 0.7  },  // clay — the neutral rest beat
+  ];
   const PRESS_TIME = 600;
   const STAGGER = 400;
   const END_PAUSE = 5000;
@@ -108,8 +121,12 @@ html, body { margin: 0; padding: 0; background: transparent; overflow: hidden; }
   const keycaps = logo.querySelectorAll('.keycap');
   const keycapImgs = logo.querySelectorAll('.keycap-img');
   let cycleIdx = 0;
-  function setKeyColor(i, c) { keycapImgs[i].style.setProperty('--key-color', c); }
-  function setAll(c) { keycapImgs.forEach(img => img.style.setProperty('--key-color', c)); }
+  function setKeyColor(i, c) {
+    keycapImgs[i].style.setProperty('--key-color', c.bg);
+    keycaps[i].style.setProperty('--letter', c.fg);
+    keycaps[i].style.setProperty('--emboss', c.emboss);
+  }
+  function setAll(c) { keycaps.forEach((_, i) => setKeyColor(i, c)); }
   function doPass() {
     const next = CYCLE[(cycleIdx + 1) % CYCLE.length];
     for (let i = 0; i < keycaps.length; i++) {

@@ -30,8 +30,18 @@
 
   /* Section tints (light mode) */
   --tint-hero-from: #FFF4E1;
-  --tint-hero-via:  #FBE7F1;
-  --tint-hero-to:   #EDE5FB;
+  --tint-hero-via:  #FDF2E4;
+  --tint-hero-to:   #FBEBD9;
+
+  /* Hero cloth — a warm woven linen. The two thread colors build the
+     plain weave; the washes are the sunlight falling across it. */
+  --weave-base:   #FDF6EB;
+  --weave-thread: rgba(150, 104, 56, 0.06);
+  --weave-light:  rgba(255, 253, 247, 0.5);
+  --weave-slub:   rgba(150, 104, 56, 0.045);
+  --weave-wash-1: rgba(255, 199, 133, 0.42);
+  --weave-wash-2: rgba(244, 163, 118, 0.28);
+  --weave-wash-3: rgba(255, 233, 200, 0.55);
   --tint-fin:   #FFF5E2;
   --tint-knob:  #F7F0DD;
   --tint-tripwallet: #EAF1FE;
@@ -74,8 +84,17 @@
   --accent-ink: #F3F1EC;
 
   --tint-hero-from: #1B140E;
-  --tint-hero-via:  #1A0F15;
-  --tint-hero-to:   #120E1A;
+  --tint-hero-via:  #17110B;
+  --tint-hero-to:   #1A1209;
+
+  /* Dark cloth — same weave, lit by a low warm lamp instead of daylight. */
+  --weave-base:   #12100C;
+  --weave-thread: rgba(0, 0, 0, 0.22);
+  --weave-light:  rgba(255, 224, 176, 0.032);
+  --weave-slub:   rgba(0, 0, 0, 0.16);
+  --weave-wash-1: rgba(198, 116, 46, 0.22);
+  --weave-wash-2: rgba(150, 78, 38, 0.16);
+  --weave-wash-3: rgba(120, 76, 36, 0.14);
   --tint-fin:   #1E170F;
   --tint-knob:  #1B1508;
   --tint-tripwallet: #0D1526;
@@ -118,10 +137,8 @@ a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
 
 em {
-  font-family: "Instrument Serif", Georgia, "Times New Roman", serif;
-  font-style: italic;
-  font-weight: 400;
-  letter-spacing: -0.01em;
+  font-style: normal;
+  font-weight: 600;
 }
 
 /* ---------- Header ---------- */
@@ -257,54 +274,43 @@ p { color: var(--ink-2); }
 .hero {
   padding-top: 14rem;
   padding-bottom: 14.5rem;
-  background:
-    radial-gradient(1600px 900px at 90% -5%, var(--tint-hero-to) 0%, transparent 65%),
-    radial-gradient(1200px 800px at 5% 5%, var(--tint-hero-from) 0%, transparent 60%),
-    linear-gradient(180deg, var(--tint-hero-via) 0%, var(--tint-hero-via) 40%, var(--bg) 100%);
   overflow: hidden;
+  background-color: var(--weave-base);
+  background-image:
+    radial-gradient(1100px 700px at 12% 6%, var(--weave-wash-1) 0%, transparent 62%),
+    radial-gradient(950px 640px at 88% 14%, var(--weave-wash-2) 0%, transparent 60%),
+    linear-gradient(180deg, var(--weave-wash-3) 0%, transparent 52%, var(--bg) 100%);
 }
 
-.hero-glow,
-.hero-glow-2 {
+/* Woven cloth. The inner four gradients are the plain weave: warp and weft
+   threads in a warm shadow tone, plus an offset pair in a highlight tone so
+   the crossings catch light the way real linen does. The outer two are
+   slubs — occasional thicker threads on coprime pitches (17/41 and 23/53),
+   so the pattern never lines up into graph paper. Masked toward the bottom
+   so the fabric dissolves into the page instead of ending on a hard seam. */
+.hero::before {
+  content: "";
   position: absolute;
+  inset: 0;
+  z-index: 0;
   pointer-events: none;
-  filter: blur(80px);
+  background-image:
+    repeating-linear-gradient(90deg, transparent 0 17px, var(--weave-slub) 17px 18px, transparent 18px 41px),
+    repeating-linear-gradient(0deg,  transparent 0 23px, var(--weave-slub) 23px 24px, transparent 24px 53px),
+    repeating-linear-gradient(90deg, var(--weave-thread) 0 1px, transparent 1px 5px),
+    repeating-linear-gradient(0deg,  var(--weave-thread) 0 1px, transparent 1px 5px),
+    repeating-linear-gradient(90deg, transparent 0 2px, var(--weave-light) 2px 3px, transparent 3px 5px),
+    repeating-linear-gradient(0deg,  transparent 0 2px, var(--weave-light) 2px 3px, transparent 3px 5px);
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 58%, transparent 96%);
+          mask-image: linear-gradient(180deg, #000 0%, #000 58%, transparent 96%);
 }
 
-.hero-glow {
-  top: -220px;
-  left: 50%;
-  width: 1100px;
-  height: 640px;
-  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent-fin) 58%, transparent), transparent 70%);
-  opacity: 0.95;
-  animation: heroGlowDrift 6s ease-in-out infinite alternate;
-}
-
-.hero-glow-2 {
-  bottom: -160px;
-  right: -120px;
-  width: 720px;
-  height: 560px;
-  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent-note) 52%, transparent), transparent 68%);
-  opacity: 0.85;
-  animation: heroGlowDrift2 7.5s ease-in-out infinite alternate;
-}
-
-@keyframes heroGlowDrift {
-  0%   { transform: translate(-60%, -20px) scale(0.95); opacity: 0.75; }
-  100% { transform: translate(-32%, 60px)  scale(1.15); opacity: 1; }
-}
-
-@keyframes heroGlowDrift2 {
-  0%   { transform: translate(40px, 40px)   scale(0.95); opacity: 0.7; }
-  100% { transform: translate(-120px, -80px) scale(1.2);  opacity: 1; }
-}
+/* Keep the hero content above the cloth. */
+.hero-inner { position: relative; z-index: 1; }
 
 .hero h1 em {
   color: var(--accent-fin);
-  font-size: 1.08em;
-  padding: 0 0.04em;
+  font-weight: inherit;
 }
 
 .hero-sub {
@@ -519,9 +525,9 @@ p { color: var(--ink-2); }
 .feature-body h2 { margin-bottom: 0.4rem; }
 
 .feature-tagline {
-  font-family: "Instrument Serif", Georgia, serif;
-  font-style: italic;
-  font-size: 1.55rem;
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
   line-height: 1.3;
   color: var(--ink);
   margin-bottom: 1.5rem;
@@ -759,7 +765,7 @@ p { color: var(--ink-2); }
 
 .makers-body h2 em {
   color: var(--accent-fin);
-  font-style: italic;
+  font-weight: inherit;
   border-bottom: 2px solid color-mix(in srgb, var(--accent-fin) 65%, transparent);
   padding-bottom: 1px;
 }
@@ -847,14 +853,6 @@ p { color: var(--ink-2); }
   .hero { padding-top: 6.5rem; padding-bottom: 7rem; }
   .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; justify-items: start; }
   .hero-media { order: -1; max-width: 300px; justify-self: center; }
-  .hero-glow-2 {
-    width: 420px;
-    height: 340px;
-    bottom: -200px;
-    right: -180px;
-    opacity: 0.55;
-  }
-  [data-theme="dark"] .hero-glow-2 { opacity: 0.85; }
   .apps-grid { grid-template-columns: 1fr; }
   .feature-inner,
   .feature-alt .feature-inner { grid-template-columns: 1fr; gap: 2rem; }
