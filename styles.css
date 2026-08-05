@@ -33,15 +33,17 @@
   --tint-hero-via:  #FDF2E4;
   --tint-hero-to:   #FBEBD9;
 
-  /* Hero cloth — a warm woven linen. The two thread colors build the
-     plain weave; the washes are the sunlight falling across it. */
+  /* Woven linen — the cloth the whole page is printed on. The two thread
+     colors build the plain weave; the washes are the sunlight that falls
+     across it in the hero. */
   --weave-base:   #FDF6EB;
   --weave-thread: rgba(150, 104, 56, 0.06);
   --weave-light:  rgba(255, 253, 247, 0.5);
   --weave-slub:   rgba(150, 104, 56, 0.045);
-  --weave-wash-1: rgba(255, 199, 133, 0.42);
-  --weave-wash-2: rgba(244, 163, 118, 0.28);
-  --weave-wash-3: rgba(255, 233, 200, 0.55);
+  --weave-wash-1: rgba(249, 168,  86, 0.60);
+  --weave-wash-2: rgba(232, 130,  80, 0.46);
+  --weave-wash-3: rgba(252, 214, 160, 0.72);
+  --hero-edge:    rgba(150, 104,  56, 0.26);
   --tint-fin:   #FFF5E2;
   --tint-knob:  #F7F0DD;
   --tint-tripwallet: #EAF1FE;
@@ -59,6 +61,21 @@
 
   --retired-tag-bg: #EFEDE6;
   --retired-tag-fg: #6B6B70;
+
+  /* The weave itself, defined once and reused by every section. The inner
+     four gradients are the plain weave: warp and weft threads in a warm
+     shadow tone, plus an offset pair in a highlight tone so the crossings
+     catch light the way real linen does. The outer two are slubs —
+     occasional thicker threads on coprime pitches (17/41 and 23/53), so the
+     pattern never resolves into graph paper. The thread colors resolve per
+     theme at the point of use, so this one definition serves light and dark. */
+  --weave-layers:
+    repeating-linear-gradient(90deg, transparent 0 17px, var(--weave-slub) 17px 18px, transparent 18px 41px),
+    repeating-linear-gradient(0deg,  transparent 0 23px, var(--weave-slub) 23px 24px, transparent 24px 53px),
+    repeating-linear-gradient(90deg, var(--weave-thread) 0 1px, transparent 1px 5px),
+    repeating-linear-gradient(0deg,  var(--weave-thread) 0 1px, transparent 1px 5px),
+    repeating-linear-gradient(90deg, transparent 0 2px, var(--weave-light) 2px 3px, transparent 3px 5px),
+    repeating-linear-gradient(0deg,  transparent 0 2px, var(--weave-light) 2px 3px, transparent 3px 5px);
 }
 
 [data-theme="dark"] {
@@ -92,9 +109,12 @@
   --weave-thread: rgba(0, 0, 0, 0.22);
   --weave-light:  rgba(255, 224, 176, 0.032);
   --weave-slub:   rgba(0, 0, 0, 0.16);
-  --weave-wash-1: rgba(198, 116, 46, 0.22);
-  --weave-wash-2: rgba(150, 78, 38, 0.16);
-  --weave-wash-3: rgba(120, 76, 36, 0.14);
+  --weave-wash-1: rgba(206, 120, 44, 0.34);
+  --weave-wash-2: rgba(158,  82, 38, 0.26);
+  --weave-wash-3: rgba(126,  80, 36, 0.24);
+  /* On near-black a dark hairline is invisible, so the cut is drawn with a
+     faint warm highlight instead. */
+  --hero-edge:    rgba(255, 214, 160, 0.15);
   --tint-fin:   #1E170F;
   --tint-knob:  #1B1508;
   --tint-tripwallet: #0D1526;
@@ -230,6 +250,25 @@ section {
   position: relative;
 }
 
+/* The cloth runs the length of the page. Every section and the footer lays
+   the same weave over its own background but under its content, so the
+   texture is the thread binding the whole page together. */
+section::before,
+.site-footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: var(--weave-layers);
+}
+
+.section-inner,
+.footer-inner {
+  position: relative;
+  z-index: 1;
+}
+
 .section-inner {
   max-width: 1160px;
   margin: 0 auto;
@@ -271,38 +310,20 @@ h3 { font-size: 1.2rem; line-height: 1.3; }
 p { color: var(--ink-2); }
 
 /* ---------- Hero (soft color gradient) ---------- */
+/* The hero is the same cloth as the rest of the page, but with daylight
+   falling across it. It ends on a hard edge rather than a fade, so the
+   hand-off to the apps section is a clean cut — the weave is what carries
+   continuity, not a colour blend. */
 .hero {
   padding-top: 14rem;
   padding-bottom: 14.5rem;
   overflow: hidden;
+  border-bottom: 1px solid var(--hero-edge);
   background-color: var(--weave-base);
   background-image:
     radial-gradient(1100px 700px at 12% 6%, var(--weave-wash-1) 0%, transparent 62%),
     radial-gradient(950px 640px at 88% 14%, var(--weave-wash-2) 0%, transparent 60%),
-    linear-gradient(180deg, var(--weave-wash-3) 0%, transparent 52%, var(--bg) 100%);
-}
-
-/* Woven cloth. The inner four gradients are the plain weave: warp and weft
-   threads in a warm shadow tone, plus an offset pair in a highlight tone so
-   the crossings catch light the way real linen does. The outer two are
-   slubs — occasional thicker threads on coprime pitches (17/41 and 23/53),
-   so the pattern never lines up into graph paper. Masked toward the bottom
-   so the fabric dissolves into the page instead of ending on a hard seam. */
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background-image:
-    repeating-linear-gradient(90deg, transparent 0 17px, var(--weave-slub) 17px 18px, transparent 18px 41px),
-    repeating-linear-gradient(0deg,  transparent 0 23px, var(--weave-slub) 23px 24px, transparent 24px 53px),
-    repeating-linear-gradient(90deg, var(--weave-thread) 0 1px, transparent 1px 5px),
-    repeating-linear-gradient(0deg,  var(--weave-thread) 0 1px, transparent 1px 5px),
-    repeating-linear-gradient(90deg, transparent 0 2px, var(--weave-light) 2px 3px, transparent 3px 5px),
-    repeating-linear-gradient(0deg,  transparent 0 2px, var(--weave-light) 2px 3px, transparent 3px 5px);
-  -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 58%, transparent 96%);
-          mask-image: linear-gradient(180deg, #000 0%, #000 58%, transparent 96%);
+    linear-gradient(180deg, var(--weave-wash-3) 0%, transparent 58%);
 }
 
 /* Keep the hero content above the cloth. */
@@ -363,13 +384,9 @@ p { color: var(--ink-2); }
    so the section reads as a continuation of the hero rather than flat grey. */
 .apps {
   position: relative;
-  /* Calm hand-off from the hero: the top ~25% stays flat cream (matching the
-     hero's cream bottom) so there's no colour band at the seam. Colour only
-     builds up gently far below the fold, echoing the hero's cool accents. */
-  background:
-    radial-gradient(1000px 640px at 14% 112%, var(--tint-deals) 0%, transparent 60%),
-    radial-gradient(1000px 640px at 86% 118%, var(--tint-note) 0%, transparent 60%),
-    linear-gradient(180deg, var(--bg) 0%, var(--bg) 24%, var(--bg-soft) 72%, var(--tint-hero-via) 128%);
+  /* Deliberately flat and a shade cooler than the hero's sunlit cloth, so
+     the boundary between the two reads as a crisp edge. */
+  background: var(--tint-apps);
   overflow: hidden;
 }
 
