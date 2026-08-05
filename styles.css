@@ -37,23 +37,26 @@
      colors build the plain weave; the washes are the sunlight that falls
      across it in the hero. */
   --weave-base:   #FDF6EB;
-  --weave-thread: rgba(150, 104, 56, 0.06);
-  --weave-light:  rgba(255, 253, 247, 0.5);
-  --weave-slub:   rgba(150, 104, 56, 0.045);
+  --weave-thread: rgba(150, 104, 56, 0.05);
+  --weave-light:  rgba(255, 253, 247, 0.2);
+  --weave-slub:   rgba(150, 104, 56, 0.03);
   --weave-wash-1: rgba(249, 168,  86, 0.60);
   --weave-wash-2: rgba(232, 130,  80, 0.46);
   --weave-wash-3: rgba(252, 214, 160, 0.72);
   --hero-edge:    rgba(150, 104,  56, 0.26);
+  /* All section grounds are warm now — the cool pastels (pink, lavender,
+     blue, mint) fought the woven cloth. Each app keeps its identity through
+     its accent colour instead, on eyebrows, chips and hover borders. */
   --tint-fin:   #FFF5E2;
   --tint-knob:  #F7F0DD;
-  --tint-tripwallet: #EAF1FE;
-  --tint-deals: #ECF2FB;
-  --tint-marks: #FCEBEF;
-  --tint-note:  #F1ECFB;
-  --tint-mantra: #E8F5EF;
+  --tint-tripwallet: #F5EFE3;
+  --tint-deals: #F7F1E6;
+  --tint-marks: #F9F2E6;
+  --tint-note:  #F5F0E7;
+  --tint-mantra: #F3F2E3;
   --tint-retired: #F4F2EC;
   --tint-apps: #FBFAF7;
-  --tint-about: #FFFFFF;
+  --tint-about: #FDFAF4;
 
   --shadow-card: 0 1px 0 rgba(0,0,0,0.02), 0 12px 32px -18px rgba(20,12,6,0.16);
   --shadow-soft: 0 1px 0 rgba(0,0,0,0.03), 0 8px 18px -14px rgba(20,12,6,0.18);
@@ -106,9 +109,9 @@
 
   /* Dark cloth — same weave, lit by a low warm lamp instead of daylight. */
   --weave-base:   #12100C;
-  --weave-thread: rgba(0, 0, 0, 0.22);
-  --weave-light:  rgba(255, 224, 176, 0.032);
-  --weave-slub:   rgba(0, 0, 0, 0.16);
+  --weave-thread: rgba(0, 0, 0, 0.18);
+  --weave-light:  rgba(255, 224, 176, 0.022);
+  --weave-slub:   rgba(0, 0, 0, 0.12);
   --weave-wash-1: rgba(206, 120, 44, 0.34);
   --weave-wash-2: rgba(158,  82, 38, 0.26);
   --weave-wash-3: rgba(126,  80, 36, 0.24);
@@ -117,11 +120,11 @@
   --hero-edge:    rgba(255, 214, 160, 0.15);
   --tint-fin:   #1E170F;
   --tint-knob:  #1B1508;
-  --tint-tripwallet: #0D1526;
-  --tint-deals: #0F1826;
-  --tint-marks: #261018;
-  --tint-note:  #1A1330;
-  --tint-mantra: #0F2119;
+  --tint-tripwallet: #171208;
+  --tint-deals: #1A1409;
+  --tint-marks: #1D1610;
+  --tint-note:  #18130B;
+  --tint-mantra: #15180D;
   --tint-retired: #111113;
   --tint-apps: #0E0E0F;
   --tint-about: #0E0E0F;
@@ -252,7 +255,11 @@ section {
 
 /* The cloth runs the length of the page. Every section and the footer lays
    the same weave over its own background but under its content, so the
-   texture is the thread binding the whole page together. */
+   texture is the thread binding the whole page together.
+
+   Strength is dialled back by default: behind paragraphs a full-strength
+   weave fights the text for attention. The hero, which is mostly open
+   cloth, turns it up. */
 section::before,
 .site-footer::before {
   content: "";
@@ -261,6 +268,7 @@ section::before,
   z-index: 0;
   pointer-events: none;
   background-image: var(--weave-layers);
+  opacity: var(--weave-strength, 0.5);
 }
 
 .section-inner,
@@ -284,7 +292,13 @@ section::before,
   margin-bottom: 1.5rem;
 }
 
-.eyebrow--accent { color: var(--section-accent, var(--ink)); }
+/* Accents are picked for borders and glows, where being light is fine. As
+   small text on a light ground they land around 2-3.7:1, well under the 4.5
+   needed to read comfortably. Mixing toward --ink keeps each app's hue but
+   pulls contrast over the line — and because --ink flips per theme, the same
+   mix darkens on cream and lightens on near-black. 60% is set by the
+   tightest case (Fin's orange). */
+.eyebrow--accent { color: color-mix(in srgb, var(--section-accent, var(--ink)) 60%, var(--ink) 40%); }
 
 h1, h2, h3 {
   font-weight: 700;
@@ -315,6 +329,7 @@ p { color: var(--ink-2); }
    hand-off to the apps section is a clean cut — the weave is what carries
    continuity, not a colour blend. */
 .hero {
+  --weave-strength: 1;
   padding-top: 14rem;
   padding-bottom: 14.5rem;
   overflow: hidden;
@@ -330,7 +345,9 @@ p { color: var(--ink-2); }
 .hero-inner { position: relative; z-index: 1; }
 
 .hero h1 em {
-  color: var(--accent-fin);
+  /* Large display text only needs 3:1, so this keeps more of the orange
+     than the small-text accents can afford. */
+  color: color-mix(in srgb, var(--accent-fin) 78%, var(--ink) 22%);
   font-weight: inherit;
 }
 
@@ -474,7 +491,9 @@ p { color: var(--ink-2); }
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--tile-accent);
+  /* 11px uppercase in a raw tile accent lands near 1.8:1 on its own tinted
+     pill — mixed toward --ink it clears 4.5 while keeping the tile's hue. */
+  color: color-mix(in srgb, var(--tile-accent) 55%, var(--ink) 45%);
   padding: 3px 9px;
   border-radius: 999px;
   background: color-mix(in srgb, var(--tile-accent) 10%, transparent);
@@ -493,7 +512,7 @@ p { color: var(--ink-2); }
 }
 
 .chip-new {
-  color: var(--accent-fin);
+  color: color-mix(in srgb, var(--accent-fin) 58%, var(--ink) 42%);
   background: color-mix(in srgb, var(--accent-fin) 16%, transparent);
   box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent-fin) 35%, transparent);
 }
@@ -560,7 +579,7 @@ p { color: var(--ink-2); }
   margin-top: 1.8rem;
   font-size: 0.98rem;
   font-weight: 600;
-  color: var(--section-accent, var(--ink));
+  color: color-mix(in srgb, var(--section-accent, var(--ink)) 60%, var(--ink) 40%);
   border-bottom: 1.5px solid currentColor;
   padding-bottom: 2px;
   transition: gap 0.2s ease;
@@ -781,7 +800,7 @@ p { color: var(--ink-2); }
 }
 
 .makers-body h2 em {
-  color: var(--accent-fin);
+  color: color-mix(in srgb, var(--accent-fin) 70%, var(--ink) 30%);
   font-weight: inherit;
   border-bottom: 2px solid color-mix(in srgb, var(--accent-fin) 65%, transparent);
   padding-bottom: 1px;
