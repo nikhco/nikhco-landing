@@ -9,11 +9,11 @@
     <title>NiKhCo. — Small software, patiently made. | Independent Mac &amp; web app studio</title>
     <meta
       name="description"
-      content="NiKhCo. is an independent software studio building small, dependable apps for iPhone, Mac and the web. Makers of Knob (desktop volume knob for Mac), TripWallet (iOS travel document wallet), Fin. (menu bar to-do list for Mac), Mantra (desktop mantra widget for Mac), TempDeals, TempMarks, and TempNote. Proudly built in Canada since 2013."
+      content="NiKhCo. is an independent software studio building small, dependable apps for iPhone, Mac and the web. Makers of Knob (desktop volume knob for Mac), TripWallet (iOS travel document wallet), Fin. (menu bar to-do list for Mac), Mantra (desktop mantra widget for Mac), TempDeals, TempMarks, and TempNote (a free scratchpad for the Mac menu bar and Chrome). Proudly built in Canada since 2013."
     />
     <meta
       name="keywords"
-      content="NiKhCo, independent software studio, Mac app studio, indie Mac developer, Knob, Mac volume knob widget, TripWallet, travel wallet iOS app, Fin app, Fin Mac to-do list, Mantra, Mantra Mac widget, mantra app, affirmation widget, TempDeals, TempMarks, TempNote, small software, utility apps, Chrome extensions, Canadian software studio, quiet apps, minimalist software"
+      content="NiKhCo, independent software studio, Mac app studio, indie Mac developer, Knob, Mac volume knob widget, TripWallet, travel wallet iOS app, Fin app, Fin Mac to-do list, Mantra, Mantra Mac widget, mantra app, affirmation widget, TempDeals, TempMarks, TempNote, TempNote Mac menu bar scratchpad, TempNote Chrome extension, small software, utility apps, Chrome extensions, Canadian software studio, quiet apps, minimalist software"
     />
     <meta name="author" content="NiKhCo." />
     <meta name="publisher" content="NiKhCo." />
@@ -191,9 +191,11 @@
           "item": {
             "@type": "SoftwareApplication",
             "name": "TempNote",
-            "description": "A Chrome extension scratchpad that sits in the corner of your browser for short-lived notes.",
-            "applicationCategory": "BrowserApplication",
-            "operatingSystem": "Chrome",
+            "description": "A free scratchpad in the Mac menu bar, also a Chrome add-on. Dump text in, copy it out, let it expire — notes delete themselves. No AI, no account, no sync.",
+            "applicationCategory": "UtilitiesApplication",
+            "operatingSystem": "macOS 13.0 or later; Chrome",
+            "url": "https://tempnote.nikhco.in",
+            "offers": { "@type": "Offer", "price": "0.00", "priceCurrency": "USD" },
             "publisher": { "@type": "Organization", "name": "NiKhCo." }
           }
         }
@@ -220,7 +222,7 @@
           "name": "What apps does NiKhCo. make?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "NiKhCo. makes seven active apps: Knob — a vintage amp-inspired volume knob that floats on the Mac desktop; TripWallet — an offline-first iOS travel wallet for passports, visas, trips and immigration day counts; Fin. — a free, minimalist to-do list for the Mac menu bar; Mantra — a tiny Mac widget for one short note, always on the desktop; TempDeals — a clean, filterable feed of the best shopping deals from around the web; TempMarks — a Chrome extension for temporary bookmarks; and TempNote — a Chrome extension scratchpad for short-lived notes."
+            "text": "NiKhCo. makes seven active apps: Knob — a vintage amp-inspired volume knob that floats on the Mac desktop; TripWallet — an offline-first iOS travel wallet for passports, visas, trips and immigration day counts; Fin. — a free, minimalist to-do list for the Mac menu bar; Mantra — a tiny Mac widget for one short note, always on the desktop; TempDeals — a clean, filterable feed of the best shopping deals from around the web; TempMarks — a Chrome extension for temporary bookmarks; and TempNote — a free scratchpad in the Mac menu bar, also a Chrome add-on, for notes that expire on their own."
           }
         },
         {
@@ -318,11 +320,25 @@
           <p class="eyebrow">Our apps</p>
           <h2>Small tools, each built to do one thing well.</h2>
           <p class="apps-lede">
-            An iPhone app, three Mac apps, a website, and two browser tools —
+            An iPhone app, four Mac apps, a website, and two browser tools —
             each built with the same quiet, careful approach.
           </p>
 
           <div class="apps-grid">
+            <a class="app-tile app-tile--note" href="#tempnote">
+              <div class="app-icon">
+                <img src="assets_nikhco/products/TempNote_Logo.png" alt="TempNote app icon — a white note and pen on a blue tile" />
+              </div>
+              <div class="app-meta">
+                <div class="app-meta-head">
+                  <h3>TempNote</h3>
+                  <span class="chip chip-new">New</span>
+                </div>
+                <p>A scratchpad in your menu bar. Notes that expire on their own.</p>
+                <span class="app-platform">Mac app · Chrome extension</span>
+              </div>
+            </a>
+
             <a class="app-tile app-tile--knob" href="#knob">
               <div class="app-icon">
                 <img src="assets_nikhco/products/Knob_Logo.png" alt="Knob app icon — cursive K on a dark badge with a gold ring" />
@@ -397,16 +413,37 @@
                 <span class="app-platform">Chrome extension</span>
               </div>
             </a>
+          </div>
+        </div>
+      </section>
 
-            <a class="app-tile app-tile--note" href="#tempnote">
-              <div class="app-icon">
-                <img src="assets_nikhco/products/TempNotes_Logo.png" alt="TempNote logo" />
-              </div>
-              <div class="app-meta">
-                <h3>TempNote</h3>
-                <p>A scratchpad that lives in the corner of your browser.</p>
-                <span class="app-platform">Chrome extension</span>
-              </div>
+      <!-- FEATURED: TEMPNOTE -->
+      <section id="tempnote" class="feature feature--note feature-alt">
+        <div class="section-inner feature-inner">
+          <div class="feature-media">
+            <img
+              src="assets_nikhco/products/TempNote_Mac_Screenshot.png"
+              alt="TempNote for Mac — a sand-coloured note hanging from the menu bar, holding a flight confirmation, a phone number and a Wi-Fi password"
+              loading="lazy"
+            />
+          </div>
+          <div class="feature-body">
+            <p class="eyebrow eyebrow--accent">New · For Mac and Chrome</p>
+            <h2>TempNote</h2>
+            <p class="feature-tagline">Dump it, copy it, toss it.</p>
+            <p>
+              TempNote is a scratchpad that lives in your Mac menu bar — a place
+              for the flight confirmation, the Wi-Fi password, the paragraph you
+              are about to paste somewhere else. Notes expire on their own, so
+              nothing piles up.
+            </p>
+            <p>
+              Free. No AI, no account, no sync. It began as a Chrome add-on in
+              2010 and is back as a native Mac app — with the add-on on its way
+              back to the Chrome Web Store too.
+            </p>
+            <a class="learn-more" href="https://tempnote.nikhco.in" target="_blank" rel="noreferrer">
+              Visit tempnote.nikhco.in <span aria-hidden="true">→</span>
             </a>
           </div>
         </div>
@@ -572,9 +609,9 @@
       <!-- BROWSER TOOLS -->
       <section class="feature-pair">
         <div class="section-inner">
-          <p class="eyebrow pair-eyebrow">Browser tools</p>
+          <p class="eyebrow pair-eyebrow">Also for the browser</p>
 
-          <div class="pair-grid">
+          <div class="pair-grid pair-grid--single">
             <article id="tempmarks" class="pair-card pair-card--marks">
               <div class="pair-media">
                 <img
@@ -591,27 +628,6 @@
                   receipt, a tab you'll act on tomorrow. TempMarks gives you a
                   separate drawer for those links, so your real bookmarks stay
                   clean and meaningful.
-                </p>
-                <span class="learn-more learn-more-muted">Coming back soon</span>
-              </div>
-            </article>
-
-            <article id="tempnote" class="pair-card pair-card--note">
-              <div class="pair-media">
-                <img
-                  src="assets_nikhco/products/TempNote_Screenshot.png"
-                  alt="TempNote — a scratchpad that lives in your browser"
-                  loading="lazy"
-                />
-              </div>
-              <div class="pair-body">
-                <h3>TempNote</h3>
-                <p class="feature-tagline">A scratchpad, right where you browse.</p>
-                <p>
-                  TempNote is a lightweight notepad that sits in the corner of
-                  your browser. Good for addresses, order numbers, and the
-                  little bits of text you need for the next five minutes but
-                  not for the next five years.
                 </p>
                 <span class="learn-more learn-more-muted">Coming back soon</span>
               </div>

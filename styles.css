@@ -24,7 +24,7 @@
   --accent-tripwallet-2: #E8C36A;
   --accent-deals: #3E7BD6;
   --accent-marks: #E0335B;
-  --accent-note: #7A5FCE;
+  --accent-note: #4A63D9;
   --accent-mantra: #2F9E77;
   --accent-ink: #0E0E0F;
 
@@ -33,20 +33,17 @@
   --tint-hero-via:  #FDF2E4;
   --tint-hero-to:   #FBEBD9;
 
-  /* Woven linen — the cloth the whole page is printed on. The two thread
-     colors build the plain weave; the washes are the sunlight that falls
-     across it in the hero. */
-  --weave-base:   #FDF6EB;
-  --weave-thread: rgba(150, 104, 56, 0.05);
-  --weave-light:  rgba(255, 253, 247, 0.2);
-  --weave-slub:   rgba(150, 104, 56, 0.03);
-  --weave-wash-1: rgba(249, 168,  86, 0.60);
-  --weave-wash-2: rgba(232, 130,  80, 0.46);
-  --weave-wash-3: rgba(252, 214, 160, 0.72);
-  --hero-edge:    rgba(150, 104,  56, 0.26);
-  /* All section grounds are warm now — the cool pastels (pink, lavender,
-     blue, mint) fought the woven cloth. Each app keeps its identity through
-     its accent colour instead, on eyebrows, chips and hover borders. */
+  /* Paper — the warm sheet the whole page is printed on. The washes are the
+     sunlight that falls across it in the hero; the grain (below) is the
+     tooth of the paper, too fine to read as a pattern. */
+  --paper:        #FDF6EB;
+  --hero-wash-1:  rgba(249, 168,  86, 0.58);
+  --hero-wash-2:  rgba(232, 130,  80, 0.42);
+  --hero-wash-3:  rgba(252, 214, 160, 0.70);
+  --grain-opacity: 0.05;
+  --grain-blend:   multiply;
+  /* All section grounds are warm. Each app keeps its identity through its
+     accent colour instead, on eyebrows, chips and hover borders. */
   --tint-fin:   #FFF5E2;
   --tint-knob:  #F7F0DD;
   --tint-tripwallet: #F5EFE3;
@@ -65,20 +62,11 @@
   --retired-tag-bg: #EFEDE6;
   --retired-tag-fg: #6B6B70;
 
-  /* The weave itself, defined once and reused by every section. The inner
-     four gradients are the plain weave: warp and weft threads in a warm
-     shadow tone, plus an offset pair in a highlight tone so the crossings
-     catch light the way real linen does. The outer two are slubs —
-     occasional thicker threads on coprime pitches (17/41 and 23/53), so the
-     pattern never resolves into graph paper. The thread colors resolve per
-     theme at the point of use, so this one definition serves light and dark. */
-  --weave-layers:
-    repeating-linear-gradient(90deg, transparent 0 17px, var(--weave-slub) 17px 18px, transparent 18px 41px),
-    repeating-linear-gradient(0deg,  transparent 0 23px, var(--weave-slub) 23px 24px, transparent 24px 53px),
-    repeating-linear-gradient(90deg, var(--weave-thread) 0 1px, transparent 1px 5px),
-    repeating-linear-gradient(0deg,  var(--weave-thread) 0 1px, transparent 1px 5px),
-    repeating-linear-gradient(90deg, transparent 0 2px, var(--weave-light) 2px 3px, transparent 3px 5px),
-    repeating-linear-gradient(0deg,  transparent 0 2px, var(--weave-light) 2px 3px, transparent 3px 5px);
+  /* The grain: a tile of monochrome fractal noise, laid over every section
+     at a few percent. It has no repeat you can see (the tile is 240px and
+     the noise is stitched), so it never resolves into lines or a grid the
+     way the earlier woven pattern did — it just takes the flatness off. */
+  --grain: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='g' x='0' y='0' width='100%25' height='100%25'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch' seed='7'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23g)'/></svg>");
 }
 
 [data-theme="dark"] {
@@ -99,7 +87,7 @@
   --accent-tripwallet-2: #E8C36A;
   --accent-deals: #6AA0F2;
   --accent-marks: #F25A7C;
-  --accent-note: #A488E8;
+  --accent-note: #93A5FF;
   --accent-mantra: #4ECDA0;
   --accent-ink: #F3F1EC;
 
@@ -107,17 +95,13 @@
   --tint-hero-via:  #17110B;
   --tint-hero-to:   #1A1209;
 
-  /* Dark cloth — same weave, lit by a low warm lamp instead of daylight. */
-  --weave-base:   #12100C;
-  --weave-thread: rgba(0, 0, 0, 0.18);
-  --weave-light:  rgba(255, 224, 176, 0.022);
-  --weave-slub:   rgba(0, 0, 0, 0.12);
-  --weave-wash-1: rgba(206, 120, 44, 0.34);
-  --weave-wash-2: rgba(158,  82, 38, 0.26);
-  --weave-wash-3: rgba(126,  80, 36, 0.24);
-  /* On near-black a dark hairline is invisible, so the cut is drawn with a
-     faint warm highlight instead. */
-  --hero-edge:    rgba(255, 214, 160, 0.15);
+  /* Dark paper — the same sheet, lit by a low warm lamp instead of daylight. */
+  --paper:        #12100C;
+  --hero-wash-1:  rgba(206, 120, 44, 0.34);
+  --hero-wash-2:  rgba(158,  82, 38, 0.26);
+  --hero-wash-3:  rgba(126,  80, 36, 0.24);
+  --grain-opacity: 0.045;
+  --grain-blend:   screen;
   --tint-fin:   #1E170F;
   --tint-knob:  #1B1508;
   --tint-tripwallet: #171208;
@@ -253,13 +237,10 @@ section {
   position: relative;
 }
 
-/* The cloth runs the length of the page. Every section and the footer lays
-   the same weave over its own background but under its content, so the
-   texture is the thread binding the whole page together.
-
-   Strength is dialled back by default: behind paragraphs a full-strength
-   weave fights the text for attention. The hero, which is mostly open
-   cloth, turns it up. */
+/* The paper runs the length of the page. Every section and the footer lays
+   the same grain over its own background but under its content, so one
+   sheet carries the whole page. It is deliberately faint: it should be felt
+   on a flat tint and never noticed behind text. */
 section::before,
 .site-footer::before {
   content: "";
@@ -267,9 +248,13 @@ section::before,
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background-image: var(--weave-layers);
-  opacity: var(--weave-strength, 0.5);
+  background-image: var(--grain);
+  background-size: 240px 240px;
+  opacity: var(--grain-opacity);
+  mix-blend-mode: var(--grain-blend);
 }
+
+.site-footer { position: relative; }
 
 .section-inner,
 .footer-inner {
@@ -324,24 +309,22 @@ h3 { font-size: 1.2rem; line-height: 1.3; }
 p { color: var(--ink-2); }
 
 /* ---------- Hero (soft color gradient) ---------- */
-/* The hero is the same cloth as the rest of the page, but with daylight
-   falling across it. It ends on a hard edge rather than a fade, so the
-   hand-off to the apps section is a clean cut — the weave is what carries
-   continuity, not a colour blend. */
+/* The hero is the same paper as the rest of the page, with daylight falling
+   across it from the top corners. The light fades out before the bottom, so
+   the hero settles into the apps section with no edge at all. */
 .hero {
-  --weave-strength: 1;
   padding-top: 14rem;
-  padding-bottom: 14.5rem;
+  padding-bottom: 13rem;
   overflow: hidden;
-  border-bottom: 1px solid var(--hero-edge);
-  background-color: var(--weave-base);
+  background-color: var(--paper);
   background-image:
-    radial-gradient(1100px 700px at 12% 6%, var(--weave-wash-1) 0%, transparent 62%),
-    radial-gradient(950px 640px at 88% 14%, var(--weave-wash-2) 0%, transparent 60%),
-    linear-gradient(180deg, var(--weave-wash-3) 0%, transparent 58%);
+    linear-gradient(180deg, transparent 0%, transparent 62%, var(--tint-apps) 100%),
+    radial-gradient(1100px 700px at 12% 6%, var(--hero-wash-1) 0%, transparent 62%),
+    radial-gradient(950px 640px at 88% 14%, var(--hero-wash-2) 0%, transparent 60%),
+    linear-gradient(180deg, var(--hero-wash-3) 0%, transparent 58%);
 }
 
-/* Keep the hero content above the cloth. */
+/* Keep the hero content above the paper. */
 .hero-inner { position: relative; z-index: 1; }
 
 .hero h1 em {
@@ -401,8 +384,6 @@ p { color: var(--ink-2); }
    so the section reads as a continuation of the hero rather than flat grey. */
 .apps {
   position: relative;
-  /* Deliberately flat and a shade cooler than the hero's sunlit cloth, so
-     the boundary between the two reads as a crisp edge. */
   background: var(--tint-apps);
   overflow: hidden;
 }
@@ -531,6 +512,7 @@ p { color: var(--ink-2); }
 .feature--fin   { background: var(--tint-fin);   --section-accent: var(--accent-fin); }
 .feature--deals { background: var(--tint-deals); --section-accent: var(--accent-deals); }
 .feature--mantra { background: var(--tint-mantra); --section-accent: var(--accent-mantra); }
+.feature--note  { background: var(--tint-note);  --section-accent: var(--accent-note); }
 
 .feature-inner {
   display: grid;
@@ -604,6 +586,10 @@ p { color: var(--ink-2); }
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
 }
+
+/* One card left in the row (TempNote moved up to its own feature), so it
+   keeps a card's width instead of stretching across the page. */
+.pair-grid--single { grid-template-columns: minmax(0, 1fr); max-width: 34rem; }
 
 .pair-card {
   --card-accent: var(--ink);
@@ -755,12 +741,12 @@ p { color: var(--ink-2); }
   flex-shrink: 0;
 }
 
-/* Soft lavender drop-card peeking from bottom-right */
+/* Soft gold drop-card peeking from bottom-right */
 .makers-photos::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: color-mix(in srgb, var(--accent-note) 22%, transparent);
+  background: color-mix(in srgb, var(--accent-knob) 20%, transparent);
   border-radius: 26px;
   z-index: 0;
   transform: translate(8px, 10px);
