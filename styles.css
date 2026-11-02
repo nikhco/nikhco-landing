@@ -553,6 +553,8 @@ p { color: var(--ink-2); }
 
 .feature-body p + p { margin-top: 1rem; }
 .feature-body p { font-size: 1.02rem; }
+.feature-body p a { color: var(--section-accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.feature-body p a:hover { text-decoration-thickness: 2px; }
 
 .learn-more {
   display: inline-flex;
