@@ -35,12 +35,12 @@
 
   /* Paper — the warm sheet the whole page is printed on. The washes are the
      sunlight that falls across it in the hero; the grain (below) is the
-     tooth of the paper, too fine to read as a pattern. */
+     tooth of the paper, a few pixels across so it reads on Retina. */
   --paper:        #FDF6EB;
   --hero-wash-1:  rgba(249, 168,  86, 0.58);
   --hero-wash-2:  rgba(232, 130,  80, 0.42);
   --hero-wash-3:  rgba(252, 214, 160, 0.70);
-  --grain-opacity: 0.05;
+  --grain-opacity: 0.18;
   --grain-blend:   multiply;
   /* All section grounds are warm. Each app keeps its identity through its
      accent colour instead, on eyebrows, chips and hover borders. */
@@ -63,10 +63,10 @@
   --retired-tag-fg: #6B6B70;
 
   /* The grain: a tile of monochrome fractal noise, laid over every section
-     at a few percent. It has no repeat you can see (the tile is 240px and
+     at about a fifth. It has no repeat you can see (the tile is 240px and
      the noise is stitched), so it never resolves into lines or a grid the
      way the earlier woven pattern did — it just takes the flatness off. */
-  --grain: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='g' x='0' y='0' width='100%25' height='100%25'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch' seed='7'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23g)'/></svg>");
+  --grain: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='g' x='0' y='0' width='100%25' height='100%25'><feTurbulence type='fractalNoise' baseFrequency='0.35' numOctaves='3' stitchTiles='stitch' seed='7'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23g)'/></svg>");
 }
 
 [data-theme="dark"] {
@@ -100,7 +100,7 @@
   --hero-wash-1:  rgba(206, 120, 44, 0.34);
   --hero-wash-2:  rgba(158,  82, 38, 0.26);
   --hero-wash-3:  rgba(126,  80, 36, 0.24);
-  --grain-opacity: 0.045;
+  --grain-opacity: 0.16;
   --grain-blend:   screen;
   --tint-fin:   #1E170F;
   --tint-knob:  #1B1508;
